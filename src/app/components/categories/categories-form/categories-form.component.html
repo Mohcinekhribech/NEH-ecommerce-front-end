@@ -1,0 +1,110 @@
+<form #categoryForm="ngForm" (submit)="postData(categoryForm)" class="p-4 rounded-lg bg-white">
+  <div>
+    <h2 class="text-[#8DB600] text-2xl font-medium pb-6">Create Category :</h2>
+  </div>
+  <div class="mb-6">
+    <div class="flex space-x-4">
+      <figure class="relative" *ngFor="let image of images; let i = index">
+        <button
+          (click)="removePicture(i)"
+          class="absolute w-4 h-4 opacity-50 top-0 right-2"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="p-1 bg-gray-400 rounded-full"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M18 6l-12 12" />
+            <path d="M6 6l12 12" />
+          </svg>
+        </button>
+        <img class="h-20" [src]="image" alt="Preview" />
+      </figure>
+    </div>
+    <div class="">
+      <label
+        class="block mb-2 text-sm font-medium text-gray-900"
+        for="multiple_files"
+        >Upload images</label
+      >
+      <input
+        class="border border-gray-300 text-gray-800 text-sm rounded-lg block w-full p-2.5 placeholder-gray-700 shadow"
+        id="multiple_files"
+        (change)="addImage(fileInput)"
+        accept="image/*"
+        multiple
+        #fileInput
+        type="file"
+      />
+    </div>
+  </div>
+  <div class="mb-6">
+    <label for="category_name" class="block mb-2 text-sm font-medium"
+      >Category name</label
+    >
+    <input
+      name="categoryName"
+      type="text"
+      id="category_name"
+      [(ngModel)]="categoryDtoRequest.name"
+      class="border border-gray-300 text-sm rounded-lg block w-full p-2.5 placeholder-gray-700 shadow"
+      maxlength="100"
+      #categoryName="ngModel"
+      placeholder="Category Name"
+      required
+    />
+    <div
+      *ngIf="
+        categoryName.invalid && (categoryName.dirty || categoryName.touched)
+      "
+      class="text-red-500 text-xs"
+    >
+      <div *ngIf="categoryName.errors?.['required']">
+        category name is required.
+      </div>
+      <div *ngIf="categoryName.errors?.['maxlength']">
+        category name must be less than 250 characters.
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-6">
+    <label for="message" class="block mb-2 text-sm font-medium"
+      >Description</label
+    >
+    <textarea
+      name="description"
+      id="message"
+      [(ngModel)]="categoryDtoRequest.description"
+      rows="4"
+      class="border border-gray-300 text-sm rounded-lg block w-full p-2.5 placeholder-gray-700 shadow"
+      placeholder="Write Category Description here..."
+      maxlength="250"
+      #description="ngModel"
+      required
+    ></textarea>
+    <div
+      *ngIf="description.invalid && (description.dirty || description.touched)"
+      class="text-red-500 text-xs"
+    >
+      <div *ngIf="description.errors?.['required']">description is required.</div>
+      <div *ngIf="description.errors?.['maxlength']">
+        description must be less than 250 characters.
+      </div>
+    </div>
+  </div>
+
+  <button
+    class="bg-[#8DB600] hover:bg-[#8DB600]/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+  >
+    Submit
+  </button>
+</form>

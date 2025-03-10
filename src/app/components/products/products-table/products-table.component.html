@@ -1,0 +1,145 @@
+<div class="relative overflow-x-auto">
+    <form (submit)="loadOrders()" class="flex space-x-2 my-2 justify-center items-center">
+        <div class="coolinput">
+          <label for="productName" class="text">Product Name:</label>
+          <input
+            type="text"
+            placeholder="Write here..."
+            name="productName"
+            [(ngModel)]="searchCriteria.name"
+            class="input"
+          />
+        </div>
+        
+        <div class="coolinput">
+          <label for="categoryName" class="text">Category Name:</label>
+          <input
+            type="text"
+            placeholder="Write here..."
+            name="categoryName"
+            [(ngModel)]="searchCriteria.categoryName"
+            class="input"
+          />
+        </div>
+        
+        <div class="coolinput">
+          <label for="minPrice" class="text">Min Price:</label>
+          <input
+            type="number"
+            placeholder="Min Price"
+            name="minPrice"
+            [(ngModel)]="searchCriteria.minPrice"
+            class="input"
+          />
+        </div>
+        
+        <div class="coolinput">
+          <label for="maxPrice" class="text">Max Price:</label>
+          <input
+            type="number"
+            placeholder="Max Price"
+            name="maxPrice"
+            [(ngModel)]="searchCriteria.maxPrice"
+            class="input"
+          />
+        </div>
+        
+        <button type="submit" class="px-4 py-2 bg-[#8DB600] font-semibold rounded-lg text-white h-fit flex space-x-2 items-center mt-2" > <li class="pi pi-search"></li><span>Search</span></button>
+      </form>
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="bg-gray-50">
+            <tr>
+                <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500">
+                    Image
+                </th>
+                <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500">
+                    name
+                </th>
+                <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500">
+                    Category
+                </th>
+                <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500">
+                    Quantity
+                </th>
+                <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500">
+                    Purchase Price
+                </th>
+                <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500">
+                    final Price
+                </th>
+                <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500">
+                    Weight
+                </th>
+                <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500">
+                    
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products?.content" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap ">
+                    <div >
+                        <img class="h-16 w-16 rounded-lg object-cover" [src]="'http://localhost:9090/api/upload/'+product.productMedias[0].mediaName" alt="" srcset="">
+                    </div>
+                </th>
+                <th scope="row" class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                    <div class="flex space-x-2 justify-center align-center">
+                                {{product.name}}
+                    </div>
+                </th>
+                <td class="px-4 py-2">
+                    {{product.category?.name}}
+                </td>
+                <td class="px-4 py-2">
+                    {{product.quantity}}
+                </td>
+                <td class="px-4 py-2">
+                    {{product.purchasePrice}}
+                </td>
+                <td class="px-4 py-2">
+                    {{product.finalPrice}}
+                </td>
+                <td class="px-4 py-2">
+                    {{product.weight}}
+                </td>
+                <td class="px-4 py-2">
+                    <div class="flex space-x-4">
+                        <a [routerLink]="'/dashboard/products/update/'+product.id" class="text-gray-500 hover:text-lime-500">
+                            <li class="pi pi-pen-to-square"></li>
+                        </a>
+                        <p-button (click)="deleteProduct(product.id,$event)" [outlined]="true"  class="text-gray-500 hover:text-red-500">
+                            <li class="pi pi-trash"></li>
+                        </p-button>
+                       </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="mt-6 sm:flex sm:items-center sm:justify-between ">
+        <div class="text-sm text-gray-500 dark:text-gray-400">
+            Page <span class="font-medium text-gray-700 dark:text-gray-100">{{products?.number}} of {{products?.totalPages}}</span> 
+        </div>
+
+        <div class="flex items-center mt-4 gap-x-4 sm:mt-0">
+            <button (click)="prevPage()" class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+                </svg>
+
+                <span>
+                    previous
+                </span>
+            </button>
+
+            <button (click)="nextPage()" class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
+                <span>
+                    Next
+                </span>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>

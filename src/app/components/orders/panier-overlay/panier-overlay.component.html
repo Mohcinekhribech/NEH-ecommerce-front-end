@@ -1,0 +1,41 @@
+<div  class="relative" >
+    <button id="cart-button" class="flex justify-center" (click)="pn.toggle($event)">
+        <li class="pi pi-shopping-bag text-2xl text-gray-700" badgeSize="small" pBadge [value]="itemNum"></li>
+    </button>
+    <p-overlayPanel  class="shadow bg-[#F4F5F8] " #pn>
+        <div class="rounded-lg w-[250px]">
+            <div class="flex justify-center p-2 space-x-2 ">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-bag"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" /><path d="M9 11v-5a3 3 0 0 1 6 0v5" /></svg>
+                <p class="text-lg font-medium">Panier</p>
+            </div>
+            <div class="w-full border-t-2 border-b-2 py-2 max-h-[50vh] overflow-y-auto">
+                <div *ngFor="let item of cartItems" class="flex p-2 justify-between">
+                    <img class="max-w-[60px]  rounded-md" [src]="'http://localhost:9090/api/upload/'+ item.product.productMedias[0].mediaName" alt="">
+                    <div>
+                        <p class="text-sm font-semibold">{{item.product.name}}</p>
+                        <div class="flex space-x-2">
+                            <button (click)="manus()" class="p-1 rounded-lg shadow bg-gray-200">
+                                <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-minus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /></svg>
+                            </button>
+                            <p>{{item.quantity}}</p>
+                            <button (click)="plus()" class="p-1 rounded-lg shadow bg-gray-200">
+                                <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="button" (click)="removeProduct(item.product.id)"class="text-red-500">
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="p-2 flex justify-between">
+                <p>
+                    Totale : {{total}} $
+                </p>
+                <a routerLink="/checkout" class="bg-[#8DB600] text-white  px-2 py-1 rounded-lg text-xs font-semibold">
+                    Checkout
+                </a>
+            </div>
+        </div>
+    </p-overlayPanel>
+</div>

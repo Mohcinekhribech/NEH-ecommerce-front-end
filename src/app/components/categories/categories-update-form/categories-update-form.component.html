@@ -1,0 +1,60 @@
+
+<form #categoryForm="ngForm" (submit)="putData(categoryForm)" class="p-4 rounded-lg bg-white">
+    <div>
+        <h2 class="text-[#8DB600] text-2xl font-medium pb-6">Create Category :</h2>
+      </div>
+    <div class="mb-6">
+        <label for="category_name" class="block mb-2 text-sm font-medium ">Category name</label>
+        <input
+        name="categoryName"
+        type="text"
+        id="category_name"
+        [(ngModel)]="categoryDtoRequest.name"
+        class="border border-gray-300 text-sm rounded-lg block w-full p-2.5 placeholder-gray-700 shadow"
+        maxlength="100"
+        #categoryName="ngModel"
+        placeholder="Category Name"
+        required
+      />
+      <div
+        *ngIf="
+          categoryName.invalid && (categoryName.dirty || categoryName.touched)
+        "
+        class="text-red-500 text-xs"
+      >
+        <div *ngIf="categoryName.errors?.['required']">
+          category name is required.
+        </div>
+        <div *ngIf="categoryName.errors?.['maxlength']">
+          category name must be less than 250 characters.
+        </div>
+      </div>    </div> 
+    
+      <div class="mb-6">
+        <label for="message" class="block mb-2 text-sm font-medium"
+          >Description</label
+        >
+        <textarea
+          name="description"
+          id="message"
+          [(ngModel)]="categoryDtoRequest.description"
+          rows="4"
+          class="border border-gray-300 text-sm rounded-lg block w-full p-2.5 placeholder-gray-700 shadow"
+          placeholder="Write Category Description here..."
+          maxlength="250"
+          #description="ngModel"
+          required
+        ></textarea>
+        <div
+          *ngIf="description.invalid && (description.dirty || description.touched)"
+          class="text-red-500 text-xs"
+        >
+          <div *ngIf="description.errors?.['required']">description is required.</div>
+          <div *ngIf="description.errors?.['maxlength']">
+            description must be less than 250 characters.
+          </div>
+        </div>
+      </div>
+
+    <button class="text-white bg-[#8DB600] hover:bg-[#8DB600]/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+</form>

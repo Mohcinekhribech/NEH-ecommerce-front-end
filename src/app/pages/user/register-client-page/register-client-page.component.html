@@ -1,0 +1,424 @@
+<app-client-layout>
+  <div class="h-fit w-full flex ">
+      <div class="max-w-2xl sm:w-sm m-auto overflow-hidden bg-white rounded-lg shadow-md h-fit">
+          <div class="px-6 py-4">
+              <div class="flex justify-center mx-auto">
+                  Pure-essence
+              </div>
+              <h3 class="mt-3 text-xl font-medium text-center text-gray-600 dark:text-gray-200">Welcome Back</h3>
+      
+              <p class="mt-1 text-center text-gray-500 dark:text-gray-400">create account</p>
+      
+              <form (submit)="register()">
+                  <!-- <div>
+                      <div class="flex space-x-4">
+                        <figure class="relative" *ngFor="let image of images; let i = index">
+                          <button
+                            (click)="removePicture(i)"
+                            class="absolute w-4 h-4 opacity-50 top-0 right-2"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="p-1 bg-gray-400 rounded-full"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                              stroke="currentColor"
+                              fill="none"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                              <path d="M18 6l-12 12" />
+                              <path d="M6 6l12 12" />
+                            </svg>
+                          </button>
+                          <img class="h-20" [src]="image" alt="Preview" />
+                        </figure>
+                      </div>
+                      <div class="">
+                        <label
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          for="multiple_files"
+                          >Upload images</label
+                        >
+                        <input
+                        class="bg-white/20 border border-gray-300 text-gray-800 text-sm rounded-lg block w-full p-2.5 placeholder-gray-100"
+                        id="multiple_files"
+                          (change)="addImage(fileInput)"
+                            accept="image/*"
+                            #fileInput
+                            type="file"
+                        />
+                      </div>
+                    </div>
+                  <div class="flex w-full space-x-2">
+                      <div class="w-full mt-4">
+                        <label
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          for="Full Name"
+                          >Full Name</label
+                        >
+                          <input class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg focus:border-[#8EAE69] focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#8EAE69]" name="fullName"  type="text" placeholder="Full name" aria-label="Full name" />
+                      </div>
+                      <div class="w-full mt-4">
+                        <label
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          for="Age Range"
+                          >Age Range</label
+                        >
+                          <select class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg focus:border-[#8EAE69] focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#8EAE69]" name="Age_Range" [(ngModel)]="user.ageRange" aria-label="age Range">
+                            <option value=""></option>
+                            <option value="AGE_18_24">18-24</option>
+                            <option value="AGE_25_34">25-34</option>
+                            <option value="AGE_35_44">35-44</option>
+                            <option value="AGE_45_54">45-54</option>
+                            <option value="AGE_55_64">55-64</option>
+                            <option value="AGE_65_OLDER">65-Older</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="w-full mt-4">
+                    <label
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          for="Email"
+                          >Email</label
+                        >
+                      <input class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg focus:border-[#8EAE69] focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#8EAE69]" name="email" [(ngModel)]="user.email" type="email" placeholder="Email Address" aria-label="email" />
+                  </div>    
+                  <div class="w-full mt-4">
+                    <label
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          for="Password"
+                          >Password</label
+                        >
+                      <input class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg focus:border-[#8EAE69] focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#8EAE69]" name="password" [(ngModel)]="user.password" type="password" placeholder="Password" aria-label="Password" />
+                  </div>
+      
+                  <div class="flex items-center justify-between mt-4">
+                      <a href="#" class="text-sm text-gray-600 dark:text-gray-200 hover:text-gray-500">Forget Password?</a>
+      
+                      <button type="submit" class="px-6 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                          Sign In
+                      </button>
+                  </div> -->
+                  <div>
+                  <div class="flex space-x-4">
+                    <figure class="relative" *ngFor="let image of images; let i = index">
+                      <button
+                        (click)="removePicture(i)"
+                        class="absolute w-4 h-4 opacity-50 top-0 right-2"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="p-1 bg-gray-400 rounded-full"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M18 6l-12 12" />
+                          <path d="M6 6l12 12" />
+                        </svg>
+                      </button>
+                      <img class="h-20" [src]="image" alt="Preview" />
+                    </figure>
+                  </div>
+                  <div class="">
+                    <label
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      for="multiple_files"
+                      >Upload images</label
+                    >
+                    <input
+                    class="bg-white/20 border border-gray-300 text-gray-800 text-sm rounded-lg block w-full p-2.5 placeholder-gray-100"
+                    id="multiple_files"
+                      (change)="addImage(fileInput)"
+                        accept="image/*"
+                        #fileInput
+                        type="file"
+                    />
+                  </div>
+                </div>
+                  <div class="grid gap-6 mb-6 md:grid-cols-2">
+                    <div>
+                      <label
+                        for="first_name"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >First name</label
+                      >
+                      <input
+                        type="text"
+                        name="first_name"
+                        [(ngModel)]="user.firstName"
+                        id="first_name"
+                        maxlength="250"
+                        #firstName="ngModel"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="John"
+                        required
+                      />
+                      <div
+                        *ngIf="
+                          firstName.invalid && (firstName.dirty || firstName.touched)
+                        "
+                        class="text-red-500 text-xs"
+                      >
+                        <div *ngIf="firstName.errors?.['required']">
+                          first name is required.
+                        </div>
+                        <div *ngIf="firstName.errors?.['maxlength']">
+                          first name must be less than 250 characters.
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <label
+                        for="last_name"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Last name</label
+                      >
+                      <input
+                        type="text"
+                        id="last_name"
+                        name="last_name"
+                        [(ngModel)]="user.lastName"
+                        maxlength="250"
+                        #lastName="ngModel"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Doe"
+                        required
+                      />
+                      <div
+                        *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+                        class="text-red-500 text-xs"
+                      >
+                        <div *ngIf="lastName.errors?.['required']">
+                          last name is required.
+                        </div>
+                        <div *ngIf="lastName.errors?.['maxlength']">
+                          last name must be less than 250 characters.
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <label
+                        for="country"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Country</label
+                      >
+                      <input
+                        type="text"
+                        name="country"
+                        [(ngModel)]="user.country"
+                        id="country"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Morocco"
+                        maxlength="250"
+                        #country="ngModel"
+                        required
+                      />
+                      <div
+                        *ngIf="country.invalid && (country.dirty || country.touched)"
+                        class="text-red-500 text-xs"
+                      >
+                        <div *ngIf="country.errors?.['required']">
+                          country is required.
+                        </div>
+                        <div *ngIf="country.errors?.['maxlength']">
+                          country must be less than 250 characters.
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <label
+                        for="zipCode"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Code Postal</label
+                      >
+                      <input
+                        type="text"
+                        name="zipCode"
+                        [(ngModel)]="user.zipCode"
+                        id="zipCode"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="80000"
+                        maxlength="5"
+                        #zipCode="ngModel"
+                        required
+                      />
+                      <div
+                        *ngIf="zipCode.invalid && (zipCode.dirty || zipCode.touched)"
+                        class="text-red-500 text-xs"
+                      >
+                        <div *ngIf="zipCode.errors?.['required']">
+                          zip code is required.
+                        </div>
+                        <div *ngIf="zipCode.errors?.['maxlength']">
+                          zip code must be less than 250 characters.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="grid gap-6 mb-6 md:grid-cols-2">
+                  <div class="mb-6">
+                    <label
+                      for="phone"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      required
+                      >Phone number</label
+                    >
+                    <input
+                      type="tel"
+                      name="phone"
+                      [(ngModel)]="user.phone"
+                      id="phone"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="0612673256"
+                      required
+                      maxlength="250"
+                      pattern="^[0-9]{10}$"
+                      #phone="ngModel"
+                    />
+                    <div
+                      *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+                      class="text-red-500 text-xs"
+                    >
+                      <div *ngIf="phone.errors?.['required']">phone is required.</div>
+                      <div *ngIf="phone.errors?.['pattern']">phone must be 10 digits</div>
+                    </div>
+                  </div>
+                  <div class="w-full">
+                    <label
+                      class="block mb-2 text-sm font-medium text-gray-900"
+                      for="Age Range"
+                      >Age Range</label
+                    >
+                      <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="Age_Range" [(ngModel)]="user.ageRange" aria-label="age Range">
+                        <option value=""></option>
+                        <option value="AGE_18_24">18-24</option>
+                        <option value="AGE_25_34">25-34</option>
+                        <option value="AGE_35_44">35-44</option>
+                        <option value="AGE_45_54">45-54</option>
+                        <option value="AGE_55_64">55-64</option>
+                        <option value="AGE_65_OLDER">65-Older</option>
+                      </select>
+                  </div>
+                  </div>
+                  <div class="mb-6">
+                    <label
+                      for="email"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      >Email address</label
+                    >
+                    <input
+                      type="email"
+                      name="email"
+                      [(ngModel)]="user.email"
+                      id="email"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="john.doe@company.com"
+                      maxlength="250"
+                      pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                      #email="ngModel"
+                      required
+                    />
+                    <div
+                      *ngIf="email.invalid && (email.dirty || email.touched)"
+                      class="text-red-500 text-xs"
+                    >
+                      <div *ngIf="email.errors?.['required']">email is required.</div>
+                      <div *ngIf="email.errors?.['pattern']">
+                        Please enter a valid email address.
+                      </div>
+                      <div *ngIf="email.errors?.['maxlength']">
+                        email must be less than 250 characters.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-6">
+                    <label
+                      for="city"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      >City</label
+                    >
+                    <input
+                      type="text"
+                      name="city"
+                      [(ngModel)]="user.city"
+                      id="city"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Casablanca"
+                      maxlength="250"
+                      #city="ngModel"
+                      required
+                    />
+                    <div
+                      *ngIf="city.invalid && (city.dirty || city.touched)"
+                      class="text-red-500 text-xs"
+                    >
+                      <div *ngIf="city.errors?.['required']">city is required.</div>
+                      <div *ngIf="city.errors?.['maxlength']">
+                        city must be less than 250 characters.
+                      </div>
+                    </div>
+                  </div>
+          
+                  <div class="mb-6">
+                    <label
+                      for="address"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      >Address</label
+                    >
+                    <input
+                      name="address"
+                      type="text"
+                      [(ngModel)]="user.address"
+                      id="address"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Block K Nr 321"
+                      maxlength="250"
+                      #address="ngModel"
+                      required
+                    />
+                    <div
+                      *ngIf="address.invalid && (address.dirty || address.touched)"
+                      class="text-red-500 text-xs"
+                    >
+                      <div *ngIf="address.errors?.['required']">address is required.</div>
+                      <div *ngIf="address.errors?.['maxlength']">
+                        address must be less than 250 characters.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="w-full mt-4">
+                    <label
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          for="Password"
+                          >Password</label
+                        >
+                      <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="password" [(ngModel)]="user.password" type="password" placeholder="Password" aria-label="Password" />
+                  </div>
+                  <div class="flex items-center justify-between mt-4">
+                    <div ></div>
+                    <button type="submit" class="px-6 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#8DB600] rounded-lg focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                        Sign In
+                    </button>
+                </div>
+              </form>
+          </div>
+      
+          <div class="flex items-center justify-center py-4 text-center bg-gray-50 dark:bg-gray-700">
+              <span class="text-sm text-gray-600 dark:text-gray-200">Do you have an account? </span>
+      
+              <a  routerLink="/login" class="mx-2 text-sm font-bold text-[#8DB600] dark:text-blue-400 hover:underline">Login</a>
+          </div>
+      </div>
+  </div>
+</app-client-layout>

@@ -1,0 +1,39 @@
+<div  class="relative" >
+    <p-button (click)="pr.toggle($event)" >
+
+        <div class="overflow-hidden w-full border-0 bg-transparent flex items-center  hover:bg-surface-100 rounded-none cursor-pointer transition-colors duration-200">
+            <p-avatar [image]="'http://localhost:9090/api/upload/' + profile?.profilePic" class="mr-2" shape="circle" />
+            <h3 class="text-gray-700">
+                {{ profile?.firstName }}
+            </h3>
+        </div>
+    </p-button>
+    <p-overlayPanel class="bg-[#F4F5F8] rounded-lg shadow p-[-2px]" #pr>
+        <div class=" w-[140px]">
+            <div>
+                <div class="overflow-hidden w-full border-0 bg-transparent flex items-start p-2 pl-4 hover:bg-surface-100 dark:hover:bg-surface-800 rounded-none cursor-pointer transition-colors duration-200">
+                    <p-avatar [image]="'http://localhost:9090/api/upload/' + profile?.profilePic" class="mr-2" shape="circle" />
+                    <span class="inline-flex flex-col">
+                        <span class="font-semibold">{{profile?.firstName}}</span>
+                        <span class="text-xs">Admin</span>
+                    </span>
+                </div>
+            </div>
+            <div>
+                <a routerLink="/orders"  class="flex items-center px-4 py-1 text-md text-gray-800 font-light w-full">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-paper-bag"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 3h8a2 2 0 0 1 2 2v1.82a5 5 0 0 0 .528 2.236l.944 1.888a5 5 0 0 1 .528 2.236v5.82a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-5.82a5 5 0 0 1 .528 -2.236l1.472 -2.944v-3a2 2 0 0 1 2 -2z" /><path d="M14 15m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M6 21a2 2 0 0 0 2 -2v-5.82a5 5 0 0 0 -.528 -2.236l-1.472 -2.944" /><path d="M11 7h2" /></svg>
+                    <span class="ml-2">My Orders</span>
+                </a>
+            </div>
+            <div class="mt-2">
+                <button (click)="logout()"  class="flex items-center px-4 py-1 text-md text-gray-800 font-light w-full">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-login"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" /><path d="M21 12h-13l3 -3" /><path d="M11 15l-3 -3" /></svg>
+                    <span class="ml-2">Logout</span>
+                </button>
+            </div>
+            
+        </div>
+    </p-overlayPanel>
+    <!-- <div *ngIf="show" class="absolute top-[102%] left-[-1px] shadow">
+    </div> -->
+</div>

@@ -1,0 +1,6 @@
+<div>
+    <app-nav-bar></app-nav-bar>
+    <h1 class="text-3xl ml-8 mb-4 font-semibold text-[#49990B]">My Orders</h1>
+    <div class="flex flex-wrap justify-center mx-auto ">
+        <app-order-card *ngFor="let order of orders" [order]="order" class="m-2"></app-order-card>
+    </div>

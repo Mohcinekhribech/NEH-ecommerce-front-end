@@ -1,0 +1,103 @@
+<div class="relative overflow-x-auto w-full">
+    <table class="bg-gray-50 w-full">
+        <thead class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500">
+            <tr>
+                <th scope="col" class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                    Client
+                </th>
+                <th scope="col" class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                    Order For
+                </th>
+                <th scope="col" class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                    Total Price
+                </th>
+                <th scope="col" class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                   Country , City
+                </th>
+                <th scope="col" class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                    address
+                </th>
+                <th scope="col" class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                    status
+                </th>
+                <th scope="col" class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                    
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders?.content" class="bg-white border-b text-xs">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                    <div class="overflow-hidden w-full border-0 bg-transparent flex items-center  hover:bg-surface-100 rounded-none cursor-pointer transition-colors duration-200">
+                        <p-avatar [image]="'http://localhost:9090/api/upload/' + order.client.profilePic" class="mr-2" shape="circle" />
+                        <div>
+                            <p class="text-gray-700">
+                                {{ order.client.firstName }} 
+                            </p>
+                            <p class="text-gray-700">
+                                {{ order.client.lastName }}
+                            </p>
+                        </div>
+                    </div>
+                </th>
+                <td class="px-6 py-4">
+                        <ul class="space-y-1">
+                            <li class="w-full flex space-x-1">
+                                <p>{{order.firstName }}</p>
+                                <p>{{order.lastName }}</p>
+                            </li>
+                            <li>{{order.email}}</li>
+                            <li>{{order.phone}}</li>
+                        </ul>                    
+                </td>
+                <td class="px-6 py-4">
+                    {{order.totalPrice}}
+                </td>
+                <td class="px-6 py-4">
+                      {{order.country}} {{order.city}}
+                </td>
+                <td class="px-6 py-4">
+                    {{order.address}}
+                </td>
+                <td class="px-6 py-4 text-xs">
+                    <span [ngClass]="getStatusClasses(order.status)" class="px-2 py-1 rounded-full font-semibold text-xs w-fit h-fit">{{order.status}}</span>
+                </td>
+                <td>
+                    <button class="p-2 bg-gray-100 text-gray-600 rounded-lg" (click)="selectOrder(order.id)">
+                        <li class="pi pi-ellipsis-v"></li>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="mt-6 sm:flex sm:items-center sm:justify-between ">
+        <div class="text-sm text-gray-500 dark:text-gray-400">
+            Page <span class="font-medium text-gray-700 dark:text-gray-100">{{orders?.number}} of {{orders?.totalPages}}</span> 
+        </div>
+
+        <div class="flex items-center mt-4 gap-x-4 sm:mt-0">
+            <button (click)="prevPage()" class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+                </svg>
+
+                <span>
+                    previous
+                </span>
+            </button>
+
+            <button (click)="nextPage()" class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
+                <span>
+                    Next
+                </span>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+<app-pop-up (closeEvent)="closeModal($event)" *ngIf="showPopUp">
+    <app-order-info (notifyParent)="ngOnInit()" [orderId]="selectedOrderId"></app-order-info>
+</app-pop-up>

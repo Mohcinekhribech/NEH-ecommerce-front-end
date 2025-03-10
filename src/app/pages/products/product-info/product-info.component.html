@@ -1,0 +1,63 @@
+<app-client-layout>
+  <div class="max-w-4xl mx-auto p-4">
+    <h1 class="text-3xl font-bold text-[#49990B]">Product</h1>
+</div>
+<div class="max-w-4xl mx-auto">
+  <div class="p-4">
+    <h2 class="w-fit text-3xl font-semibold ">
+      {{ product.name }}
+    </h2>
+    <h3 class="w-fit font-medium text-lg">
+      {{ product.category?.name }}
+    </h3>
+  </div>
+  <div class="w-fit flex flex-col justify-center mx-auto">
+    <div class="rounded-lg w-fit flex justify-center p-2">
+      <img
+        class="max-h-[400px] rounded-lg mx-auto"
+        [src]="'http://localhost:9090/api/upload/' + selectedImage"
+        alt=""
+      />
+    </div>
+    <div class="p-2 h-[15ch] flex justify-center space-x-1 overflow-y-auto mx-6 ">
+      <img
+        *ngFor="let media of product.productMedias"
+        class="h-full rounded-lg"
+        (click)="selectAnImage(media.mediaName)"
+        [src]="'http://localhost:9090/api/upload/' + media.mediaName"
+        alt=""
+      />
+    </div>
+  </div>
+  <div>
+    <div class="p-2">
+      <p class="text-md text-[#003566] mx-auto font-medium my-4">
+        {{ product.description }}
+      </p>
+      <div class="flex flex-wrap space-x-2">
+          <div class="flex space-x-2 text-md p-1 my-2">
+            <p class="font-medium">Quantity : {{ product.quantity }}</p>
+          </div>
+          <div class="flex space-x-2 text-md p-1 my-2">
+            <p class="font-medium">Weight : {{ product.weight }}g</p>
+          </div>
+          <div class="flex space-x-2 text-md p-1 my-2">
+            <p class="font-medium">Price : {{ product.finalPrice }} £</p>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="p-4 max-w-4xl mx-auto">
+  <h2 class="text-2xl font-bold my-2">Benefits :</h2>
+  <p class="text-lg">
+    {{ product.benefits }}
+  </p>
+</div>
+<div class="p-4 max-w-4xl mx-auto">
+  <h2 class="text-2xl font-bold my-2">How To Use :</h2>
+  <p class="text-lg">
+    {{ product.howToUse }}
+  </p>
+</div>
+</app-client-layout>

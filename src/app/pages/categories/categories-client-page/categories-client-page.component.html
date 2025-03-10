@@ -1,0 +1,18 @@
+<app-client-layout>
+  <h1 class="text-3xl ml-8 mb-4 font-semibold text-[#49990B]">Our Categories</h1>
+  <div class="flex space-x-2 my-2 justify-center">
+        <div class="coolinput">
+          <label for="input" class="text">Category Name:</label>
+          <input
+            type="text"
+            placeholder="Write here..."
+            name="input"
+            class="input"
+          />
+        </div>
+
+  </div>
+  <div class="flex flex-wrap justify-center mx-auto ">
+      <app-category-card *ngFor="let category of categories" [category]="category" class="m-2"></app-category-card>
+  </div>
+</app-client-layout>

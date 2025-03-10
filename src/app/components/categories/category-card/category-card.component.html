@@ -1,0 +1,14 @@
+<div class="p-2 rounded-lg shadow flex space-x-2 w-fit">
+    <div class="max-w-[140px] max-h-[140px]">
+        <img class="mx-auto rounded-lg" [src]="'http://localhost:9090/api/upload/'+category.image"/>
+    </div>
+    <div class="w-[378px]">
+        <h3>
+            <a [routerLink]="'/categories/'+category.id" class="text-xl font-semibold">{{category.name}}</a>
+        </h3>
+        <p class="text-xs mt-2">
+            {{category.description}}
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam perferendis fuga iusto corrupti repellendus assumenda ducimus ad dolores
+        </p>
+    </div>
+</div>

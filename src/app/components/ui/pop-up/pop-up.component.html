@@ -1,0 +1,12 @@
+<div 
+    class="overflow-x-hidden fixed top-0 right-0 left-0 flex justify-center items-center w-full md:inset-0 h-screen max-h-full">
+    <div class="relative p-4 w-full max-w-3xl max-h-full z-50">
+        <button (click)="closeModal()" class="text-garay-400 absolute right-6 top-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
+        </button>
+       <ng-content></ng-content>
+    </div>
+    <div (click)="closeModal()" class="backdrop-brightness-50 cursor-pointer overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-40 fw-full md:inset-0 h-screen max-h-full">
+    
+    </div>
+</div>

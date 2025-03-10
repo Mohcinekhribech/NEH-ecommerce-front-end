@@ -1,0 +1,92 @@
+<div>
+  <app-nav-bar></app-nav-bar>
+  <div class="max-w-4xl mx-auto">
+      <h1 class="text-[#8DB600] text-3xl font-semibold my-4">Cart :</h1>
+    <div class="flex justify-between p-4 bg-gray-50 rounded-lh my-1">
+        <p class="text-lg font-semibold ">
+            Total Price : {{total}}$
+        </p>
+        <button class="bg-[#8DB600] text-white  px-2 py-1 rounded-lg text-md font-semibold">
+            Checkout
+        </button>
+    </div>
+    <div class="relative overflow-x-auto">
+      <table
+        class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+      >
+        <thead
+          class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+        >
+          <tr>
+            <th scope="col" class="px-6 py-3"></th>
+            <th scope="col" class="px-6 py-3">Product name</th>
+            <th scope="col" class="px-6 py-3">Category</th>
+            <th scope="col" class="px-6 py-3">Quantité</th>
+            <th scope="col" class="px-6 py-3">unit Price</th>
+            <th scope="col" class="px-6 py-3">Total Price</th>
+            <th scope="col" class="px-6 py-3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr 
+          *ngFor="let item of cartItems"
+            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200"
+          >
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+            >
+              <img
+                class="max-w-[80px] h-fit mx-auto my-auto rounded-md"
+                [src]="'http://localhost:9090/api/upload/'+item.product.productMedias[0].mediaName"
+                alt=""
+              />
+            </th>
+            <td class="px-6 py-4">{{item.product.name}}</td>
+            <td class="px-6 py-4">{{item.product.category?.name}}</td>
+            <td class="px-6 py-4"><div class="flex space-x-2">
+                <button  class="p-1 rounded-lg shadow bg-gray-200">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-minus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /></svg>
+                </button>
+                <input type="number" class="w-12" [value]="item.quantity" min="1"/>
+                <button  class="p-1 rounded-lg shadow bg-gray-200">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+                </button>
+            </div></td>
+            <td class="px-6 py-4">{{item.product.finalPrice}}</td>
+            <td class="px-6 py-4">{{item.product.finalPrice*item.quantity}}</td>
+            <td class="px-6 py-4">delete</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- <div class="border-t-2 border-b-2 py-2 max-h-[50vh] overflow-y-auto">
+            <div class="flex p-2 justify-between">
+                <img class="max-w-[90px] h-fit mx-auto my-auto rounded-md" src="https://imgs.search.brave.com/QM0Y8X--w1dMuXJGAcFusQuTlxGAdElBMI-P5Dvxba4/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Z3JlZW5ib29rLm9y/Zy9fbmV4dC9pbWFn/ZT91cmw9aHR0cHM6/Ly9kaXJlY3R1cy5n/cmVlbmJvb2sub3Jn/L2Fzc2V0cy8xY2U3/MDhhZC0wYjIxLTRm/ZGItYjliMC1iZGQ5/MWJhMjExZjgmdz0z/ODQwJnE9NzU.jpeg" alt="">
+                <div>
+                    <p class="text-xl font-semibold">Product Name </p>
+                    <p class="text-xs font-semibold">Category Name </p>
+                    <div class="flex space-x-2 my-2">
+                        <button (click)="manus()" class="p-1 rounded-lg shadow bg-gray-200">
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-minus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /></svg>
+                        </button>
+                        <p>{{numtest}}</p>
+                        <button (click)="plus()" class="p-1 rounded-lg shadow bg-gray-200">
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+                        </button>
+                    </div>
+                </div>
+                <button class="text-red-500">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
+                </button>
+            </div>
+        </div>
+        <div class="p-2 flex justify-between">
+            <p>
+                Total : 500 $
+            </p>
+            <button>Checkout</button>
+        </div> -->
+  </div>
+</div>

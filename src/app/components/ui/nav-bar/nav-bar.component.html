@@ -1,0 +1,54 @@
+<nav>
+  <div class="flex place-content-around md:p-4">
+    <div class="md:hidden p-2">
+      <button (click)="toggleMenu()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="40"
+          height="40"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M4 6l16 0" />
+          <path d="M4 12l16 0" />
+          <path d="M4 18l16 0" />
+        </svg>
+      </button>
+    </div>
+    <div class="">
+      <img class="w-[60px] rounded-full h-[60px]" src="assets/logo.jpg"/>
+    </div>
+    <ul class="max-md:hidden flex space-x-10 p-4 text-lg font-[600] font-bodoni-moda text-gray-700">
+      <li><a class="hover:text-[#8DB600] active:text-[#8DB600]" routerLink="">Home</a></li>
+      <li><a class="hover:text-[#8DB600] active:text-[#8DB600]" routerLink="/products">Products</a></li>
+      <li><a class="hover:text-[#8DB600] active:text-[#8DB600]" routerLink="/categories">Categories</a></li>
+      <li><a class="hover:text-[#8DB600] active:text-[#8DB600]" routerLink="/about">About</a></li>
+    </ul>
+    <div class="p-4 flex space-x-4">
+      
+      <app-panier-overlay></app-panier-overlay>
+      <app-profile-overlay (notifyParent)="isAuthenticate=false" *ngIf="isAuthenticate" [profile]="user"></app-profile-overlay>
+      <a
+        *ngIf="!isAuthenticate"
+        routerLink="/login"
+        class="bg-[#8DB600] text-white px-4 py-2 rounded-lg text-md font-semibold"
+      >
+        Sign In
+      </a>
+    </div>
+  </div>
+  <div *ngIf="menuOpen" class="md:hidden shadow-md p-4">
+    <ul class="space-y-4 text-center text-lg font-semibold text-gray-700">
+      <li><a class="hover:text-[#8DB600]" routerLink="/">Home</a></li>
+      <li><a class="hover:text-[#8DB600]" routerLink="/products">Products</a></li>
+      <li><a class="hover:text-[#8DB600]" routerLink="/categories">Categories</a></li>
+      <li><a class="hover:text-[#8DB600]" routerLink="/about">About</a></li>
+    </ul>
+  </div>
+</nav>
