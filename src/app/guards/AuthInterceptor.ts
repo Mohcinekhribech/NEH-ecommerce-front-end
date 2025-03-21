@@ -13,7 +13,6 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private authService:AuthService,private router:Router , private loadingService:LoadingService){}
   token:String = ''; 
   private publicEndpoints = [
-    environment.apiUrl+'/product', 
     environment.apiUrl+'/auth/logout',
     environment.apiUrl+'/auth/authenticate',
     environment.apiUrl+'/auth/register-client'
