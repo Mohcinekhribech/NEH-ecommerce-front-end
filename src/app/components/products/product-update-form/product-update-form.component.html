@@ -1,0 +1,284 @@
+<form class="max-w-lg mx-auto p-4 shadow rounded-md" (submit)="putData()">
+    <div class="mb-6">
+      <label
+        for="product_name"
+        class="block mb-2 text-sm font-medium text-gray-800"
+        >Nom</label
+      >
+      <input
+        name="productName"
+        type="text"
+        id="product_name"
+        [(ngModel)]="productDtoRequest.name"
+        class="bg-white/20 border border-gray-300 text-gray-800 text-sm rounded-lg block w-full p-2.5 placeholder-gray-100"
+        maxlength="250"
+        #productName="ngModel"
+        required
+      />
+      <div
+        *ngIf="productName.invalid && (productName.dirty || productName.touched)"
+        class="text-red-500 text-xs"
+      >
+        <div *ngIf="productName.errors?.['required']">
+          le nom du produit est obligatoire.
+        </div>
+        <div *ngIf="productName.errors?.['maxlength']">
+          le nom du produit doit comporter moins de 250 caractères.
+        </div>
+      </div>
+    </div>
+  
+    <div class="mb-6">
+      <label
+        for="category_name"
+        class="block mb-2 text-sm font-medium text-gray-800"
+        >Catégorie de produit</label
+      >
+      <select
+        name="category_name"
+        [(ngModel)]="productDtoRequest.categoryId"
+        id="category_name"
+        class="bg-white/20 border border-gray-300 text-gray-800 text-sm rounded-lg block w-full p-2.5 placeholder-gray-100"
+        placeholder="category name"
+        required
+      >
+        <Option value="">Choisissez une catégorie</Option>
+        <Option *ngFor="let category of categories" [value]="category.id">{{
+          category.name
+        }}</Option>
+      </select>
+    </div>
+  
+    <div class="mb-6 flex space-x-4 w-full">
+      <div class="w-full">
+        <label
+          for="purchasePrice"
+          class="block mb-2 text-sm font-medium text-gray-800"
+          >Prix ​​d'achat</label
+        >
+        <input
+          name="purchasePrice"
+          type="number"
+          id="purchasePrice"
+          [(ngModel)]="productDtoRequest.purchasePrice"
+          class="bg-white/20 border border-gray-300 text-gray-800 text-sm rounded-lg block w-full p-2.5 placeholder-gray-100"
+          min="0"
+          #purchasePrice="ngModel"
+          required
+        />
+        <div
+          *ngIf="
+            purchasePrice.invalid &&
+            (purchasePrice.dirty || purchasePrice.touched)
+          "
+          class="text-red-500 text-xs"
+        >
+          <div *ngIf="purchasePrice.errors?.['required']">
+            Le prix d'achat est requis.
+          </div>
+          <div *ngIf="purchasePrice.errors?.['min']">
+            Le prix d'achat doit être > 0
+          </div>
+        </div>
+      </div>
+      <div class="w-full">
+        <label
+          for="finalPrice"
+          class="block mb-2 text-sm font-medium text-gray-800"
+          >Prix ​​final</label
+        >
+        <input
+          name="finalPrice"
+          type="number"
+          id="finalPrice"
+          [(ngModel)]="productDtoRequest.finalPrice"
+          class="bg-white/20 border border-gray-300 text-gray-800 text-sm rounded-lg block w-full p-2.5 placeholder-gray-100"
+          [min]="productDtoRequest.purchasePrice"
+          #finalPrice="ngModel"
+          required
+        />
+        <div
+          *ngIf="
+            finalPrice.invalid &&
+            (finalPrice.dirty || finalPrice.touched)
+          "
+          class="text-red-500 text-xs"
+        >
+          <div *ngIf="finalPrice.errors?.['required']">
+            Prix ​​final is required.
+          </div>
+          <div *ngIf="finalPrice.errors?.['min']">
+            Prix ​​final doit être > prix d'achat
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="mb-6 flex space-x-4 w-full">
+      <div class="w-full">
+        <label
+          for="quantity"
+          class="block mb-2 text-sm font-medium text-gray-800"
+          >Quantité</label
+        >
+        <input
+          name="quantity"
+          type="number"
+          id="quantity"
+          [(ngModel)]="productDtoRequest.quantity"
+          class="bg-white/20 border border-gray-300 text-gray-800 text-sm rounded-lg block w-full p-2.5 placeholder-gray-100"
+          min="0"
+          #quantity="ngModel"
+          required
+        />
+        <div
+          *ngIf="
+            quantity.invalid &&
+            (quantity.dirty || quantity.touched)
+          "
+          class="text-red-500 text-xs"
+        >
+          <div *ngIf="quantity.errors?.['required']">
+            la quantité est requise.
+          </div>
+          <div *ngIf="quantity.errors?.['min']">
+            la quantité doit être > 0
+          </div>
+        </div>
+      </div>
+      <div class="w-full">
+        <label
+          for="weight"
+          class="block mb-2 text-sm font-medium text-gray-800"
+          >Poids (g)</label
+        >
+        <input
+          name="weight"
+          type="number"
+          id="weight"
+          [(ngModel)]="productDtoRequest.weight"
+          class="bg-white/20 border border-gray-300 text-gray-800 text-sm rounded-lg block w-full p-2.5 placeholder-gray-100"
+          min="0"
+          #weight="ngModel"
+          required
+        />
+        <div
+          *ngIf="
+            weight.invalid && (weight.dirty || weight.touched)
+          "
+          class="text-red-500 text-xs"
+        >
+          <div *ngIf="weight.errors?.['required']">
+            le poids est requis.
+          </div>
+          <div *ngIf="weight.errors?.['min']">le poids doit être > 0.</div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="mb-6">
+      <label for="message" class="block mb-2 text-sm font-medium text-gray-800"
+        >Description</label
+      >
+      <textarea
+        name="description"
+        id="message"
+        rows="4"
+        class="bg-white/20 border border-gray-300 text-gray-800 text-sm rounded-lg block w-full p-2.5 placeholder-gray-100"
+        [(ngModel)]="productDtoRequest.description"
+        placeholder="Write Category Description here..."
+        maxlength="250"
+        #description="ngModel"
+        required
+      ></textarea>
+      <div
+        *ngIf="description.invalid && (description.dirty || description.touched)"
+        class="text-red-500 text-xs"
+      >
+        <div *ngIf="description.errors?.['required']">
+          une description est requise.
+        </div>
+        <div *ngIf="description.errors?.['maxlength']">
+          la description doit comporter moins de 250 caractères.
+        </div>
+      </div>
+    </div>
+  
+    <div class="mb-6">
+      <label for="message" class="block mb-2 text-sm font-medium text-gray-800"
+        >Avantages</label
+      >
+      <textarea
+        name="description"
+        id="message"
+        rows="4"
+        class="bg-white/20 border border-gray-300 text-gray-800 text-sm rounded-lg block w-full p-2.5 placeholder-gray-100"
+        [(ngModel)]="productDtoRequest.benefits"
+        placeholder="Write Category Description here..."
+      ></textarea>
+    </div>
+  
+    <div class="mb-6">
+      <label for="message" class="block mb-2 text-sm font-medium text-gray-800"
+        >Comment utiliser</label
+      >
+      <textarea
+        name="description"
+        id="message"
+        rows="4"
+        class="bg-white/20 border border-gray-300 text-gray-800 text-sm rounded-lg block w-full p-2.5 placeholder-gray-100"
+        [(ngModel)]="productDtoRequest.howToUse"
+        placeholder="Write Category Description here..."
+      ></textarea>
+    </div>
+  
+    <!-- <div class="mb-6">
+      <label for="message" class="block mb-2 text-sm font-medium text-gray-800"
+        >Tags</label
+      >
+      <div
+        class="bg-white/20 border border-gray-300 text-gray-800 text-sm rounded-lg block w-full p-2.5 placeholder-gray-100"
+      >
+        <div class="p-4">
+          <p class="p-2">selected tags</p>
+          <div class="flex flex-wrap bg-white p-4">
+            <div *ngIf="productDtoRequest.tags.length == 0">
+              <p class="text-md text-gray-500">No tag selected</p>
+            </div>
+            <ng-container *ngFor="let tag of tags">
+              <button
+                *ngIf="tagExists(tag.id)"
+                (click)="removeTag(tag.id)"
+                class="bg-gray-50 rounded-full p-2 shadow ml-2"
+              >
+                {{ tag.name }} ( - )
+              </button>
+            </ng-container>
+          </div>
+        </div>
+        <div class="p-4">
+          <p class="p-2">tags not selected</p>
+          <div class="flex flex-wrap bg-white p-4">
+            <div *ngIf="productDtoRequest.tags.length == tags.length">
+              <p class="text-md text-gray-500">All tags selected</p>
+            </div>
+            <ng-container *ngFor="let tag of tags">
+              <button
+                *ngIf="!tagExists(tag.id)"
+                (click)="addTag(tag.id)"
+                class="bg-gray-50 rounded-full p-2 shadow ml-2"
+              >
+                {{ tag.name }} ( + )
+              </button>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  
+    <button
+      class="text-white bg-[#8DB600] hover:bg-[#8DB600]/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+    >
+      Submit
+    </button>
+  </form>

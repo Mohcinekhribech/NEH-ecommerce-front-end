@@ -1,32 +1,49 @@
 <app-client-layout>
-        <div class="flex  h-[80vh]  items-center">
-            <div class="md:w-1/2 mdh-[80vh]">
-                <div class="p-8 flex flex-col align-center h-full">
-                    <div class="my-auto">
-                        <h1 class="text-5xl font-semibold">Title of the section</h1>
-                        <p class="text-lg font-medium w-[90%] my-8">
-            Pure essence est une marque de cosmétiques dédiée à la beauté authentique et respectueuse de l'environnement.Nos produits,formulés à partir d'ingrédients 100% naturels et biologiques,sont conçus pour nourrir la peau en profondeur tout            </p>
-                        <button class="bg-[#DAA06D] text-white  px-4 py-2 rounded-lg text-lg font-semibold w-fit">
-                            See Our Products
-                        </button>
-                    </div>
+    <div class="flex h-[80vh] items-center">
+        <div class="md:w-1/2 md:h-[80vh]">
+            <div class="p-8 flex flex-col align-center h-full">
+                <div class="my-auto">
+                    <h1 class="text-3xl font-semibold">Neh Cosmetics — Une vision signée Openmind Services</h1>
+                    <ul class="text-sm w-[100%] my-4 space-y-4">
+                        <li class="text-lg font-medium">
+                            Chez Neh Cosmetics, on célèbre la beauté sous toutes ses formes avec authenticité et passion.
+                        </li>
+                        <li>
+                            🌸 زوينين (Zwinen) – Parce que vous méritez d’être beaux et belles, tout simplement.
+                        </li>
+                        <li>
+                            ✨ واعـرين (Wa3rin) – Nos produits ? Impressionnants. Vous ? Encore plus.
+                        </li>
+                        <li>
+                            💫 غزالين (Ghazalin) – Pour faire ressortir le meilleur de vous-même, naturellement.
+                        </li>
+                        <li>
+                            ❤️ بخير (Bikhir) – Votre peau, votre bien-être… toujours en harmonie.
+                        </li>
+                        <li>
+                            🙏 الحمد لله (Alhamdulillah) – Chaque détail est pensé avec gratitude et excellence.
+                        </li>
+                    </ul>
+                    <button class="bg-[#F57E04] text-white px-4 py-2 rounded-lg text-lg font-semibold w-fit">
+                        Voir nos produits
+                    </button>
                 </div>
             </div>
-            <div class="md:w-1/2 px-2 max-md:hidden ">
-                <img class="max-h-[400px] w-fit  mx-auto rounded-tl-[121px] rounded-tr-[45px] rounded-bl-[70px] rounded-br-[44px]" src="assets/Healthcare.png" alt="">
-            </div>
         </div>
-        <div class="mt-2">
-            <h2 class="text-3xl ml-8 mb-4 font-semibold ">Our Products</h2>
-            <div class="flex flex-wrap justify-center mx-auto ">
-                <app-product-card *ngFor="let product of products" [product]="product" class="m-2"></app-product-card>
-            </div>
+        <div class="md:w-1/2 px-2 max-md:hidden">
+            <img class="max-h-[400px] w-fit mx-auto rounded-tl-[121px] rounded-tr-[45px] rounded-bl-[70px] rounded-br-[44px]" src="assets/Huile & mask rose.png" alt="">
         </div>
-        <div class="mt-2">
-            <h2 class="text-3xl ml-8 mb-4 font-semibold">Our Categories</h2>
-            <div class="flex flex-wrap justify-center mx-auto ">
-                <app-category-card *ngFor="let category of categories" [category]="category" class="m-2"></app-category-card>
-            </div>
+    </div>
+    <div class="mt-2">
+        <h2 class="text-3xl ml-8 mb-4 font-semibold">Nos produits</h2>
+        <div class="flex flex-wrap justify-center mx-auto">
+            <app-product-card *ngFor="let product of products" [product]="product" class="m-2"></app-product-card>
         </div>
+    </div>
+    <div class="mt-2">
+        <h2 class="text-3xl ml-8 mb-4 font-semibold">Nos catégories</h2>
+        <div class="flex flex-wrap justify-center mx-auto">
+            <app-category-card *ngFor="let category of categories" [category]="category" class="m-2"></app-category-card>
+        </div>
+    </div>
 </app-client-layout>
-

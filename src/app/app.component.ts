@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoadingService } from './core/services/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'pure-essence_frontend';
+  title = 'neh_frontend';
+  loading$ = this.loadingService.loading$;
+
+  constructor(private loadingService: LoadingService) {}
 }

@@ -10,28 +10,29 @@ import Swal from 'sweetalert2';
 })
 export class TagsFormComponent {
   @Output() notifyParent = new EventEmitter<void>();
-  constructor(private tagService:TagService){}
-  tagDtoRequest : TagDtoRequest ={
+
+  constructor(private tagService: TagService) {}
+
+  tagDtoRequest: TagDtoRequest = {
     name: '',
     id: ''
-  }
+  };
 
-  postData()
-  {
+  postData() {
     this.tagService.postData(this.tagDtoRequest).subscribe(
       res => {
-        this.notifyParent.emit()
-      Swal.fire({
-        title: "Tag Created!",
-        icon: "success"
-      });
-    },
-    error => {
-      Swal.fire({
-        title: "problem in create tag !",
-        icon: "error"
-      });
-    }
-  )
+        this.notifyParent.emit();
+        Swal.fire({
+          title: "Tag créé avec succès !",
+          icon: "success"
+        });
+      },
+      error => {
+        Swal.fire({
+          title: "Problème lors de la création du tag !",
+          icon: "error"
+        });
+      }
+    );
   }
 }

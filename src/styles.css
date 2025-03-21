@@ -8,11 +8,11 @@
 
 
 h1,h2 {
-    @apply text-[#8DB600] font-bodoni-moda;
+    @apply text-[#49990B] font-bodoni-moda;
   }
   
 h3,h4,h5 {
-    @apply  text-[#DAA06D] font-bodoni-moda;
+    @apply  text-[#F57E04] font-bodoni-moda;
   }
 
   /* From Uiverse.io by kamehame-ha */ 

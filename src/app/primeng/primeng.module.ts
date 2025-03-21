@@ -11,6 +11,7 @@ import { AnimateOnScrollModule } from 'primeng/animateonscroll';
 import { AnimateModule } from 'primeng/animate';
 import { DropdownModule } from 'primeng/dropdown';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { OverlayPanelModule } from 'primeng/overlaypanel';
     DropdownModule,
     RadioButtonModule,
     AnimateModule,
+    ProgressSpinnerModule,
     ConfirmPopupModule,
     OverlayPanelModule,
   ],
@@ -35,6 +37,7 @@ import { OverlayPanelModule } from 'primeng/overlaypanel';
   exports: [
     AvatarModule,
     AnimateOnScrollModule,
+    ProgressSpinnerModule,
     RadioButtonModule,
     BadgeModule,
     CardModule,

@@ -1,6 +1,6 @@
 <form #categoryForm="ngForm" (submit)="postData(categoryForm)" class="p-4 rounded-lg bg-white">
   <div>
-    <h2 class="text-[#8DB600] text-2xl font-medium pb-6">Create Category :</h2>
+    <h2 class="text-[#8DB600] text-2xl font-medium pb-6">Créer une catégorie :</h2>
   </div>
   <div class="mb-6">
     <div class="flex space-x-4">
@@ -33,7 +33,7 @@
       <label
         class="block mb-2 text-sm font-medium text-gray-900"
         for="multiple_files"
-        >Upload images</label
+        >Télécharger des images</label
       >
       <input
         class="border border-gray-300 text-gray-800 text-sm rounded-lg block w-full p-2.5 placeholder-gray-700 shadow"
@@ -48,7 +48,7 @@
   </div>
   <div class="mb-6">
     <label for="category_name" class="block mb-2 text-sm font-medium"
-      >Category name</label
+      >Nom</label
     >
     <input
       name="categoryName"
@@ -68,10 +68,10 @@
       class="text-red-500 text-xs"
     >
       <div *ngIf="categoryName.errors?.['required']">
-        category name is required.
+        le nom de la catégorie est obligatoire.
       </div>
       <div *ngIf="categoryName.errors?.['maxlength']">
-        category name must be less than 250 characters.
+        le nom de la catégorie doit comporter moins de 250 caractères.
       </div>
     </div>
   </div>
@@ -95,16 +95,16 @@
       *ngIf="description.invalid && (description.dirty || description.touched)"
       class="text-red-500 text-xs"
     >
-      <div *ngIf="description.errors?.['required']">description is required.</div>
+      <div *ngIf="description.errors?.['required']">une description est requise.</div>
       <div *ngIf="description.errors?.['maxlength']">
-        description must be less than 250 characters.
+        la description doit comporter moins de 250 caractères.
       </div>
     </div>
   </div>
 
   <button
-    class="bg-[#8DB600] hover:bg-[#8DB600]/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    class="bg-[#8DB600] hover:bg-[#8DB600]/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
   >
-    Submit
+    Soumettre
   </button>
 </form>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { switchMap } from 'rxjs';
 import { UserReq } from 'src/app/core/models/UserReq.model';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -12,7 +13,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./register-client-page.component.css']
 })
 export class RegisterClientPageComponent {
-  constructor(private authService:AuthService,private uploadService:UploadService, private router :Router){}
+  constructor(private authService:AuthService,private uploadService:UploadService, private router :Router,private messageService:MessageService){}
   user : UserReq = {
     id: "",
     profilePic: "",
@@ -68,17 +69,12 @@ export class RegisterClientPageComponent {
     ).subscribe(
       (res) => {
         this.authService.setAuthInfo(res.access_token, res.user);
-        this.router.navigate(['/client/problems'])
-          Swal.fire({
-            title: "Your account Created!",
-            icon: "success"
-          });
+        this.router.navigate(['/'])
+        this.messageService.add({ severity: 'success', summary: 'Succès', detail: 'Votre compte a été enregistrée avec succès' });
         },
       error => {
-        Swal.fire({
-          title: "Problem in creating your account!",
-          icon: "error"
-        });
+        this.messageService.add({ severity: 'error', summary: 'Erreur', detail: 'Il y a un problème avec la création de votre compte' });
+
       }
     );
   }

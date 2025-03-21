@@ -4,12 +4,13 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { CookieService } from 'ngx-cookie-service';
 import { catchError, Observable, throwError } from 'rxjs';
 import { UserResp } from '../models/UserResp.model';
+import { environment } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:9090/api/auth';
+  private apiUrl = environment.apiUrl+'/auth';
   private jwtHelper: JwtHelperService = new JwtHelperService();
   private isRefreshing = false;
   
@@ -19,7 +20,7 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/register-client`,data);
   }
 
-  barberRegister(data:any): Observable<any> {
+  adminRegister(data:any): Observable<any> {
     return this.http.post(`${this.apiUrl}/register-admin`,data);
   }
 

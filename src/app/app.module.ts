@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CategoriesUpdateFormComponent } from './components/categories/categories-update-form/categories-update-form.component';
 import { ProductsPageComponent } from './pages/products/products-page/products-page.component';
-import { ProductUpdateFormComponent } from './components/products/product-form/product-update-form/product-update-form.component';
+import { ProductUpdateFormComponent } from './components/products/product-update-form/product-update-form.component';
 import { ProductFormComponent } from './components/products/product-form/product-form.component';
 import { AddProductPageComponent } from './pages/products/add-product-page/add-product-page.component';
 import { UpdateProductPageComponent } from './pages/products/update-product-page/update-product-page.component';

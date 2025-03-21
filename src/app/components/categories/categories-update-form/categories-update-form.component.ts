@@ -23,10 +23,10 @@ export class CategoriesUpdateFormComponent {
     if (categoryForm.valid) {
       this.categoryService.putData(this.categoryDtoRequest, this.categoryDtoRequest.id).subscribe(
         res => {
-          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'your order saved successfully' });
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'la catégorie a été modifiée avec succès' });
         },
         error => {
-          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'there is a problem current the updating of the category' });
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'il y a un problème actuellement la modification de la catégorie' });
         }
       )
     }

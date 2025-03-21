@@ -76,19 +76,12 @@ export class ProductFormComponent {
         },
         () => {
           this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Problem in creating product!' });
-          Swal.fire({
-            title: "Problem in creating product!",
-            icon: "error"
-          });
         }
           
       )
       },
       error => {
-        Swal.fire({
-          title: "Problem in creating product!",
-          icon: "error"
-        });
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Problem in creating product!' });
       }
     );
   }

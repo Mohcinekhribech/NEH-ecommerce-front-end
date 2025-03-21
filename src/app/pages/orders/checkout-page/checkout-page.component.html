@@ -2,7 +2,9 @@
   <app-nav-bar></app-nav-bar>
   <div class="max-w-4xl mx-auto">
     <h1 class="text-[#8DB600] text-3xl font-semibold my-4">Checkout :</h1>
-    <div class="flex justify-between space-x-2">
+    <div
+      class="flex justify-between space-x-2 space-y-reverse space-y-4 max-md:flex-col-reverse"
+    >
       <form
         #orderForm="ngForm"
         (submit)="save(orderForm)"
@@ -12,8 +14,8 @@
           <div>
             <label
               for="first_name"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >First name</label
+              class="block mb-2 text-sm font-medium text-gray-900 "
+              >Prénom</label
             >
             <input
               type="text"
@@ -22,7 +24,7 @@
               id="first_name"
               maxlength="250"
               #firstName="ngModel"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
               placeholder="John"
               required
             />
@@ -33,18 +35,18 @@
               class="text-red-500 text-xs"
             >
               <div *ngIf="firstName.errors?.['required']">
-                first name is required.
+                Le prénom est requis.
               </div>
               <div *ngIf="firstName.errors?.['maxlength']">
-                first name must be less than 250 characters.
+                Le prénom doit contenir moins de 250 caractères.
               </div>
             </div>
           </div>
           <div>
             <label
               for="last_name"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Last name</label
+              class="block mb-2 text-sm font-medium text-gray-900 "
+              >Nom de famille</label
             >
             <input
               type="text"
@@ -53,7 +55,7 @@
               [(ngModel)]="order.lastName"
               maxlength="250"
               #lastName="ngModel"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
               placeholder="Doe"
               required
             />
@@ -62,26 +64,26 @@
               class="text-red-500 text-xs"
             >
               <div *ngIf="lastName.errors?.['required']">
-                last name is required.
+                Le nom de famille est requis.
               </div>
               <div *ngIf="lastName.errors?.['maxlength']">
-                last name must be less than 250 characters.
+                Le nom de famille doit contenir moins de 250 caractères.
               </div>
             </div>
           </div>
           <div>
             <label
               for="country"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >Country</label
+              class="block mb-2 text-sm font-medium text-gray-900 "
+              >Pays</label
             >
             <input
               type="text"
               name="country"
               [(ngModel)]="order.country"
               id="country"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Morocco"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+              placeholder="Maroc"
               maxlength="250"
               #country="ngModel"
               required
@@ -91,17 +93,17 @@
               class="text-red-500 text-xs"
             >
               <div *ngIf="country.errors?.['required']">
-                country is required.
+                Le pays est requis.
               </div>
               <div *ngIf="country.errors?.['maxlength']">
-                country must be less than 250 characters.
+                Le pays doit contenir moins de 250 caractères.
               </div>
             </div>
           </div>
           <div>
             <label
               for="zipCode"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              class="block mb-2 text-sm font-medium text-gray-900 "
               >Code Postal</label
             >
             <input
@@ -109,7 +111,7 @@
               name="zipCode"
               [(ngModel)]="order.zipCode"
               id="zipCode"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
               placeholder="80000"
               maxlength="5"
               #zipCode="ngModel"
@@ -120,10 +122,10 @@
               class="text-red-500 text-xs"
             >
               <div *ngIf="zipCode.errors?.['required']">
-                zip code is required.
+                Le code postal est requis.
               </div>
               <div *ngIf="zipCode.errors?.['maxlength']">
-                zip code must be less than 250 characters.
+                Le code postal doit contenir moins de 250 caractères.
               </div>
             </div>
           </div>
@@ -131,16 +133,16 @@
         <div class="mb-6">
           <label
             for="phone"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            class="block mb-2 text-sm font-medium text-gray-900 "
             required
-            >Phone number</label
+            >Numéro de téléphone</label
           >
           <input
             type="tel"
             name="phone"
             [(ngModel)]="order.phone"
             id="phone"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
             placeholder="0612673256"
             required
             maxlength="250"
@@ -151,22 +153,26 @@
             *ngIf="phone.invalid && (phone.dirty || phone.touched)"
             class="text-red-500 text-xs"
           >
-            <div *ngIf="phone.errors?.['required']">phone is required.</div>
-            <div *ngIf="phone.errors?.['pattern']">phone must be 10 digits</div>
+            <div *ngIf="phone.errors?.['required']">
+              Le téléphone est requis.
+            </div>
+            <div *ngIf="phone.errors?.['pattern']">
+              Le téléphone doit contenir 10 chiffres.
+            </div>
           </div>
         </div>
         <div class="mb-6">
           <label
             for="email"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Email address</label
+            class="block mb-2 text-sm font-medium text-gray-900 "
+            >Adresse e-mail</label
           >
           <input
             type="email"
             name="email"
             [(ngModel)]="order.email"
             id="email"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
             placeholder="john.doe@company.com"
             maxlength="250"
             pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
@@ -177,27 +183,27 @@
             *ngIf="email.invalid && (email.dirty || email.touched)"
             class="text-red-500 text-xs"
           >
-            <div *ngIf="email.errors?.['required']">email is required.</div>
+            <div *ngIf="email.errors?.['required']">L'e-mail est requis.</div>
             <div *ngIf="email.errors?.['pattern']">
-              Please enter a valid email address.
+              Veuillez entrer une adresse e-mail valide.
             </div>
             <div *ngIf="email.errors?.['maxlength']">
-              email must be less than 250 characters.
+              L'e-mail doit contenir moins de 250 caractères.
             </div>
           </div>
         </div>
         <div class="mb-6">
           <label
             for="city"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >City</label
+            class="block mb-2 text-sm font-medium text-gray-900 "
+            >Ville</label
           >
           <input
             type="text"
             name="city"
             [(ngModel)]="order.city"
             id="city"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
             placeholder="Casablanca"
             maxlength="250"
             #city="ngModel"
@@ -207,9 +213,9 @@
             *ngIf="city.invalid && (city.dirty || city.touched)"
             class="text-red-500 text-xs"
           >
-            <div *ngIf="city.errors?.['required']">city is required.</div>
+            <div *ngIf="city.errors?.['required']">La ville est requise.</div>
             <div *ngIf="city.errors?.['maxlength']">
-              city must be less than 250 characters.
+              La ville doit contenir moins de 250 caractères.
             </div>
           </div>
         </div>
@@ -217,16 +223,16 @@
         <div class="mb-6">
           <label
             for="address"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Address</label
+            class="block mb-2 text-sm font-medium text-gray-900 "
+            >Adresse</label
           >
           <input
             name="address"
             type="text"
             [(ngModel)]="order.address"
             id="address"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Block K Nr 321"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            placeholder="Bloc K Nr 321"
             maxlength="250"
             #address="ngModel"
             required
@@ -235,19 +241,21 @@
             *ngIf="address.invalid && (address.dirty || address.touched)"
             class="text-red-500 text-xs"
           >
-            <div *ngIf="address.errors?.['required']">address is required.</div>
+            <div *ngIf="address.errors?.['required']">
+              L'adresse est requise.
+            </div>
             <div *ngIf="address.errors?.['maxlength']">
-              address must be less than 250 characters.
+              L'adresse doit contenir moins de 250 caractères.
             </div>
           </div>
         </div>
 
         <div>
           <label
-          for="paymentMethod"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Payment Method</label
-        >
+            for="paymentMethod"
+            class="block mb-2 text-sm font-medium text-gray-900 "
+            >Méthode de paiement</label
+          >
           <div class="card flex justify-start p-2">
             <div class="flex flex-col gap-4">
               <div class="flex items-center">
@@ -257,9 +265,12 @@
                   [value]="PaymentMethod.COD"
                   inputId="COD"
                 />
-                <label for="COD"  class="ml-2 flex space-x-1 items-center font-medium">
+                <label
+                  for="COD"
+                  class="ml-2 flex space-x-1 items-center font-medium"
+                >
                   <li class="pi pi-money-bill"></li>
-                  <p>Cash On Delivery</p>
+                  <p>Paiement à la livraison</p>
                 </label>
               </div>
               <div class="flex items-center">
@@ -269,7 +280,10 @@
                   [value]="PaymentMethod.PAYPAL"
                   inputId="PAYPAL"
                 />
-                <label for="PAYPAL" class="ml-2 flex space-x-1 items-center font-medium">
+                <label
+                  for="PAYPAL"
+                  class="ml-2 flex space-x-1 items-center font-medium"
+                >
                   <li class="pi pi-paypal"></li>
                   <p>Paypal</p>
                 </label>
@@ -281,11 +295,12 @@
         <button
           class="bg-[#8DB600] text-white px-2 py-1 rounded-md text-lg my-8 font-semibold w-full"
         >
-          Confirm
+          Confirmer
         </button>
       </form>
+
       <div>
-        <div class="bg-[#F4F5F8] rounded-lg w-[300px]">
+        <div class="bg-[#F4F5F8] rounded-lg md:w-[300px] max-md:w-full">
           <div class="flex justify-center p-2 space-x-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"

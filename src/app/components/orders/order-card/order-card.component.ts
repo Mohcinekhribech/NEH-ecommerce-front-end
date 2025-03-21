@@ -41,6 +41,8 @@ export class OrderCardComponent {
     paymentStatus: PaymentStatus.PENDING,
     paymentMethod: PaymentMethod.CREDIT_CARD
   };
+  selectedOrderId : String = "";
+  showPopUp : boolean = false;
 
   getStatusClasses(status: OrderStatus|undefined): string {
         if(status)
@@ -49,6 +51,14 @@ export class OrderCardComponent {
               return `${colors.bg} ${colors.text}`;
           }
           return '';
+    }
+    selectOrder(orderId:String)
+    {
+      this.selectedOrderId = orderId;
+      this.showPopUp=true;
+    }
+    closeModal(data: any) {
+      this.showPopUp = false;
     }
 
 

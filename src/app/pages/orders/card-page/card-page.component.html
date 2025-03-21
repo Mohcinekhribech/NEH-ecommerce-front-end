@@ -1,61 +1,56 @@
 <div>
   <app-nav-bar></app-nav-bar>
   <div class="max-w-4xl mx-auto">
-      <h1 class="text-[#8DB600] text-3xl font-semibold my-4">Cart :</h1>
+    <h1 class="text-[#8DB600] text-3xl font-semibold my-4">Panier :</h1>
     <div class="flex justify-between p-4 bg-gray-50 rounded-lh my-1">
-        <p class="text-lg font-semibold ">
-            Total Price : {{total}}$
-        </p>
-        <button class="bg-[#8DB600] text-white  px-2 py-1 rounded-lg text-md font-semibold">
-            Checkout
-        </button>
+      <p class="text-lg font-semibold">
+        Prix Total : {{total}}$
+      </p>
+      <button class="bg-[#8DB600] text-white px-2 py-1 rounded-lg text-md font-semibold">
+        Passer à la caisse
+      </button>
     </div>
     <div class="relative overflow-x-auto">
-      <table
-        class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
-      >
-        <thead
-          class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
-        >
+      <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
           <tr>
             <th scope="col" class="px-6 py-3"></th>
-            <th scope="col" class="px-6 py-3">Product name</th>
-            <th scope="col" class="px-6 py-3">Category</th>
+            <th scope="col" class="px-6 py-3">Nom du produit</th>
+            <th scope="col" class="px-6 py-3">Catégorie</th>
             <th scope="col" class="px-6 py-3">Quantité</th>
-            <th scope="col" class="px-6 py-3">unit Price</th>
-            <th scope="col" class="px-6 py-3">Total Price</th>
+            <th scope="col" class="px-6 py-3">Prix unitaire</th>
+            <th scope="col" class="px-6 py-3">Prix total</th>
             <th scope="col" class="px-6 py-3"></th>
           </tr>
         </thead>
         <tbody>
-          <tr 
-          *ngFor="let item of cartItems"
-            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200"
-          >
-            <th
-              scope="row"
-              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-            >
-              <img
-                class="max-w-[80px] h-fit mx-auto my-auto rounded-md"
-                [src]="'http://localhost:9090/api/upload/'+item.product.productMedias[0].mediaName"
-                alt=""
-              />
+          <tr *ngFor="let item of cartItems" class="bg-white border-b  border-gray-200">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+              <img class="max-w-[80px] h-fit mx-auto my-auto rounded-md" [src]="'http://localhost:9090/api/upload/'+item.product.productMedias[0].mediaName" alt=""/>
             </th>
             <td class="px-6 py-4">{{item.product.name}}</td>
             <td class="px-6 py-4">{{item.product.category?.name}}</td>
-            <td class="px-6 py-4"><div class="flex space-x-2">
-                <button  class="p-1 rounded-lg shadow bg-gray-200">
-                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-minus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /></svg>
+            <td class="px-6 py-4">
+              <div class="flex space-x-2">
+                <button class="p-1 rounded-lg shadow bg-gray-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-minus">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M5 12l14 0" />
+                  </svg>
                 </button>
                 <input type="number" class="w-12" [value]="item.quantity" min="1"/>
-                <button  class="p-1 rounded-lg shadow bg-gray-200">
-                    <svg  xmlns="http://www.w3.org/2000/svg"  width="14"  height="14"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+                <button class="p-1 rounded-lg shadow bg-gray-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-plus">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M12 5l0 14" />
+                    <path d="M5 12l14 0" />
+                  </svg>
                 </button>
-            </div></td>
+              </div>
+            </td>
             <td class="px-6 py-4">{{item.product.finalPrice}}</td>
-            <td class="px-6 py-4">{{item.product.finalPrice*item.quantity}}</td>
-            <td class="px-6 py-4">delete</td>
+            <td class="px-6 py-4">{{item.product.finalPrice * item.quantity}}</td>
+            <td class="px-6 py-4">supprimer</td>
           </tr>
         </tbody>
       </table>

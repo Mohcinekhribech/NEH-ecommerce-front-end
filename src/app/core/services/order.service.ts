@@ -4,12 +4,13 @@ import { Observable } from 'rxjs';
 import { PaymentStatus } from '../enums/payment-status.enum';
 import { OrderStatus } from '../enums/order-status.enum';
 import { PaginatedOrders } from '../models/pageable/pageable-orders-dto.model';
+import { environment } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
-  private apiUrl = 'http://localhost:9090/api';
+  private apiUrl = environment.apiUrl;
   
     constructor(private http: HttpClient) {}
   postData(data: any): Observable<any> {

@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { loadScript, PayPalNamespace } from '@paypal/paypal-js';
 import { MessageService } from 'primeng/api';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PayPalService {
   private paypal: PayPalNamespace | null = null;
-  private apiUrl = 'http://localhost:9090/api';
+  private apiUrl = environment.apiUrl;
   
     constructor(private http: HttpClient,private messageService:MessageService) {}
 

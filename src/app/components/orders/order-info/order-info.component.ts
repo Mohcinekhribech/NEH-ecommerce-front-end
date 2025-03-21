@@ -4,6 +4,7 @@ import { OrderStatus, OrderStatusColors } from 'src/app/core/enums/order-status.
 import { PaymentMethod } from 'src/app/core/enums/payment-method.enum';
 import { PaymentStatus } from 'src/app/core/enums/payment-status.enum';
 import { OrderDtoResponse } from 'src/app/core/models/order-dto-response.model';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { OrderService } from 'src/app/core/services/order.service';
 
 @Component({
@@ -17,9 +18,11 @@ export class OrderInfoComponent {
   order:OrderDtoResponse|null=null;
   orderStatusArray = Object.values(OrderStatus);
   selectedStatus:any;
-  constructor(private orderService:OrderService,private messageService:MessageService){}
+  role:String | undefined = ''
+  constructor(private orderService:OrderService,private messageService:MessageService,private authService:AuthService){}
   ngOnInit()
   {
+    this.role =  this.authService.getAuthUser()?.role
     this.orderService.getOneOrder(this.orderId)
     .subscribe(res=>{
       if(res)
@@ -40,7 +43,7 @@ export class OrderInfoComponent {
     this.orderService.updateOrderStatus(this.selectedStatus,this.order.id)
     .subscribe(res => {
       this.notifyParent.emit()
-      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'the status Updated!' });
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'le statut Mis à jour!' });
     })
   }
 }

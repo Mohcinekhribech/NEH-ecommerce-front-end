@@ -4,10 +4,10 @@
     <p class="font-light text-sm">12/10/2024</p>
   </div>
   <div class="flex space-x-4 mt-2">
-    <p><span class="font-medium">Products : </span> {{order.orderedProducts.length}}</p>
+    <p><span class="font-medium">Produits : </span> {{order.orderedProducts.length}}</p>
   </div>
   <div class="mt-2">
-    <p class="text-md font-bold">order for :</p>
+    <p class="text-md font-bold">commander pour :</p>
     <div class="flex flex-wrap space-x-4 mt-1">
       <p class="font-medium">{{order.firstName}} {{order.lastName}}</p>
       <div class="flex">
@@ -38,8 +38,11 @@
   </div>
   <div class="flex my-2 justify-between items-center">
     <span [ngClass]="getStatusClasses(order.status)" class="px-2 py-1 rounded-full font-semibold text-xs w-fit h-fit">{{order.status}}</span>
-    <button class="py-1 px-2 rounded-md bg-[#8DB600] text-white text-sm font-semibold">
-        Details
+    <button (click)="selectOrder(order.id)" class="py-1 px-2 rounded-md bg-[#8DB600] text-white text-sm font-semibold">
+      Détails
     </button>
   </div>
 </div>
+<app-pop-up (closeEvent)="closeModal($event)" *ngIf="showPopUp">
+  <app-order-info [orderId]="selectedOrderId"></app-order-info>
+</app-pop-up>

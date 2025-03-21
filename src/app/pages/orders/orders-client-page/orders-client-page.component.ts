@@ -9,18 +9,25 @@ import { OrderService } from 'src/app/core/services/order.service';
   styleUrls: ['./orders-client-page.component.css']
 })
 export class OrdersClientPageComponent {
-   constructor(private orderService:OrderService,private authService:AuthService){}
-      orders : OrderDtoResponse[] = []
-      showUpdateForm:boolean = false;
-     
-    
-      ngOnInit()
-      {
-        var id = this.authService.getAuthUser()?.id;
-        if(id)
-        this.orderService.getOrdersByClientId(id)
+  constructor(private orderService: OrderService, private authService: AuthService) { }
+  orders: OrderDtoResponse[] = []
+  showPopUp: boolean = false;
+  selectedOrderId : String = '';
+
+
+  ngOnInit() {
+    var id = this.authService.getAuthUser()?.id;
+    if (id)
+      this.orderService.getOrdersByClientId(id)
         .subscribe(res => {
           this.orders = res
         })
-      }
+  }
+  selectOrder(orderId: String) {
+    this.selectedOrderId = orderId;
+    this.showPopUp = true;
+  }
+  closeModal(data: any) {
+    this.showPopUp = false;
+  }
 }

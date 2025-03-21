@@ -20,13 +20,13 @@ export class TagsUpdateFormComponent {
     this.tagService.putData(this.tagDtoRequest,this.tagDtoRequest.id).subscribe(
       res => {
       Swal.fire({
-        title: "Tag Updated!",
+        title: "Tag mis à jour !",
         icon: "success"
       });
     },
     error => {
       Swal.fire({
-        title: "problem in update tag !",
+        title: "Problème lors de la mise à jour du tag !",
         icon: "error"
       });
     }

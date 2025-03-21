@@ -2,12 +2,13 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PaginatedProducts } from '../models/pageable/pageable-products-dto.model';
+import { environment } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = 'http://localhost:9090/api';
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { CategoryDtoRequest } from 'src/app/core/models/CategoryDtoRequest.model';
 import { CategoryDtoResponse } from 'src/app/core/models/CategoryDtoResponse.model';
 import { CategoryService } from 'src/app/core/services/category.service';
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class CategoriessTableComponent {
 
-  constructor(private categoryService:CategoryService){}
+  constructor(private categoryService:CategoryService,private messageService: MessageService, private confirmationService: ConfirmationService){}
   categories : CategoryDtoResponse[] = []
   showUpdateForm:boolean = false;
   selectedCategory:CategoryDtoRequest ={
@@ -49,29 +50,28 @@ export class CategoriessTableComponent {
     this.showUpdateForm = true
   }
 
-  deleteCategory(id:String)
+  deleteCategory(id:String,event:Event)
   {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
-    }).then((result) => {
-      if (result.isConfirmed) {
+
+    this.confirmationService.confirm({
+      target: event.target as EventTarget,
+      message: 'Are you sure you want to delete this item?',
+      icon: 'pi pi-exclamation-triangle',
+      acceptLabel: ' Yes ',
+      rejectLabel: ' No ',
+      acceptButtonStyleClass: 'bg-[#8DB600] text-white px-2',
+      rejectButtonStyleClass: 'mr-2.5 bg-grat-200 border px-2',
+      accept: () => {
         this.categoryService.deleteData(id).subscribe(
           res => {
-            this.deleteItem(id);
-            Swal.fire({
-              title: "Deleted!",
-              text: "Your file has been deleted.",
-              icon: "success"
-            });
-          }
-        );
+            this.deleteItem(id)
+        this.messageService.add({ severity: 'success', summary: 'Confirmed', detail: 'the category deleted', life: 3000 });
+          })
+      },
+      reject: () => {
+        this.messageService.add({ severity: 'info', summary: 'Canceled', detail: 'You have cancel the deletion', life: 3000 });
       }
     });
+
   }
 }

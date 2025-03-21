@@ -2,12 +2,11 @@
   <div class="h-fit w-full flex ">
       <div class="max-w-2xl sm:w-sm m-auto overflow-hidden bg-white rounded-lg shadow-md h-fit">
           <div class="px-6 py-4">
-              <div class="flex justify-center mx-auto">
-                  Pure-essence
-              </div>
-              <h3 class="mt-3 text-xl font-medium text-center text-gray-600 dark:text-gray-200">Welcome Back</h3>
-      
-              <p class="mt-1 text-center text-gray-500 dark:text-gray-400">create account</p>
+              <div class="flex justify-center mx-auto items-center space-x-2">
+                  <img class="h-16 w-16" src="assets/logo.jpg" alt="">
+                  <h2 class="font-bold">NEH cosmetics </h2>
+              </div>      
+              <p class="mt-1 text-center text-gray-500 ">create account</p>
       
               <form (submit)="register()">
                   <!-- <div>
@@ -39,7 +38,7 @@
                       </div>
                       <div class="">
                         <label
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          class="block mb-2 text-sm font-medium text-gray-900 "
                           for="multiple_files"
                           >Upload images</label
                         >
@@ -56,7 +55,7 @@
                   <div class="flex w-full space-x-2">
                       <div class="w-full mt-4">
                         <label
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          class="block mb-2 text-sm font-medium text-gray-900 "
                           for="Full Name"
                           >Full Name</label
                         >
@@ -64,7 +63,7 @@
                       </div>
                       <div class="w-full mt-4">
                         <label
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          class="block mb-2 text-sm font-medium text-gray-900 "
                           for="Age Range"
                           >Age Range</label
                         >
@@ -81,7 +80,7 @@
                   </div>
                   <div class="w-full mt-4">
                     <label
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          class="block mb-2 text-sm font-medium text-gray-900 "
                           for="Email"
                           >Email</label
                         >
@@ -89,7 +88,7 @@
                   </div>    
                   <div class="w-full mt-4">
                     <label
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          class="block mb-2 text-sm font-medium text-gray-900 "
                           for="Password"
                           >Password</label
                         >
@@ -97,7 +96,7 @@
                   </div>
       
                   <div class="flex items-center justify-between mt-4">
-                      <a href="#" class="text-sm text-gray-600 dark:text-gray-200 hover:text-gray-500">Forget Password?</a>
+                      <a href="#" class="text-sm text-gray-600  hover:text-gray-500">Forget Password?</a>
       
                       <button type="submit" class="px-6 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                           Sign In
@@ -132,7 +131,7 @@
                   </div>
                   <div class="">
                     <label
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      class="block mb-2 text-sm font-medium text-gray-900 "
                       for="multiple_files"
                       >Upload images</label
                     >
@@ -150,7 +149,7 @@
                     <div>
                       <label
                         for="first_name"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        class="block mb-2 text-sm font-medium text-gray-900 "
                         >First name</label
                       >
                       <input
@@ -160,7 +159,7 @@
                         id="first_name"
                         maxlength="250"
                         #firstName="ngModel"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                         placeholder="John"
                         required
                       />
@@ -181,7 +180,7 @@
                     <div>
                       <label
                         for="last_name"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        class="block mb-2 text-sm font-medium text-gray-900 "
                         >Last name</label
                       >
                       <input
@@ -191,7 +190,7 @@
                         [(ngModel)]="user.lastName"
                         maxlength="250"
                         #lastName="ngModel"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                         placeholder="Doe"
                         required
                       />
@@ -210,7 +209,7 @@
                     <div>
                       <label
                         for="country"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        class="block mb-2 text-sm font-medium text-gray-900 "
                         >Country</label
                       >
                       <input
@@ -218,7 +217,7 @@
                         name="country"
                         [(ngModel)]="user.country"
                         id="country"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                         placeholder="Morocco"
                         maxlength="250"
                         #country="ngModel"
@@ -239,7 +238,7 @@
                     <div>
                       <label
                         for="zipCode"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        class="block mb-2 text-sm font-medium text-gray-900 "
                         >Code Postal</label
                       >
                       <input
@@ -247,7 +246,7 @@
                         name="zipCode"
                         [(ngModel)]="user.zipCode"
                         id="zipCode"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                         placeholder="80000"
                         maxlength="5"
                         #zipCode="ngModel"
@@ -270,7 +269,7 @@
                   <div class="mb-6">
                     <label
                       for="phone"
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      class="block mb-2 text-sm font-medium text-gray-900 "
                       required
                       >Phone number</label
                     >
@@ -279,7 +278,7 @@
                       name="phone"
                       [(ngModel)]="user.phone"
                       id="phone"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                       placeholder="0612673256"
                       required
                       maxlength="250"
@@ -300,7 +299,7 @@
                       for="Age Range"
                       >Age Range</label
                     >
-                      <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="Age_Range" [(ngModel)]="user.ageRange" aria-label="age Range">
+                      <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " name="Age_Range" [(ngModel)]="user.ageRange" aria-label="age Range">
                         <option value=""></option>
                         <option value="AGE_18_24">18-24</option>
                         <option value="AGE_25_34">25-34</option>
@@ -314,7 +313,7 @@
                   <div class="mb-6">
                     <label
                       for="email"
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      class="block mb-2 text-sm font-medium text-gray-900 "
                       >Email address</label
                     >
                     <input
@@ -322,7 +321,7 @@
                       name="email"
                       [(ngModel)]="user.email"
                       id="email"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                       placeholder="john.doe@company.com"
                       maxlength="250"
                       pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
@@ -345,7 +344,7 @@
                   <div class="mb-6">
                     <label
                       for="city"
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      class="block mb-2 text-sm font-medium text-gray-900 "
                       >City</label
                     >
                     <input
@@ -353,7 +352,7 @@
                       name="city"
                       [(ngModel)]="user.city"
                       id="city"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                       placeholder="Casablanca"
                       maxlength="250"
                       #city="ngModel"
@@ -373,7 +372,7 @@
                   <div class="mb-6">
                     <label
                       for="address"
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      class="block mb-2 text-sm font-medium text-gray-900 "
                       >Address</label
                     >
                     <input
@@ -381,7 +380,7 @@
                       type="text"
                       [(ngModel)]="user.address"
                       id="address"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                       placeholder="Block K Nr 321"
                       maxlength="250"
                       #address="ngModel"
@@ -399,25 +398,25 @@
                   </div>
                   <div class="w-full mt-4">
                     <label
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          class="block mb-2 text-sm font-medium text-gray-900 "
                           for="Password"
                           >Password</label
                         >
-                      <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="password" [(ngModel)]="user.password" type="password" placeholder="Password" aria-label="Password" />
+                      <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " name="password" [(ngModel)]="user.password" type="password" placeholder="Password" aria-label="Password" />
                   </div>
                   <div class="flex items-center justify-between mt-4">
                     <div ></div>
-                    <button type="submit" class="px-6 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#8DB600] rounded-lg focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                    <button type="submit" class="px-6 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#49990B] rounded-lg focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                         Sign In
                     </button>
                 </div>
               </form>
           </div>
       
-          <div class="flex items-center justify-center py-4 text-center bg-gray-50 dark:bg-gray-700">
-              <span class="text-sm text-gray-600 dark:text-gray-200">Do you have an account? </span>
+          <div class="flex items-center justify-center py-4 text-center bg-gray-50 ">
+              <span class="text-sm text-gray-600 ">Do you have an account? </span>
       
-              <a  routerLink="/login" class="mx-2 text-sm font-bold text-[#8DB600] dark:text-blue-400 hover:underline">Login</a>
+              <a  routerLink="/login" class="mx-2 text-sm font-bold text-[#49990B] hover:underline">Login</a>
           </div>
       </div>
   </div>

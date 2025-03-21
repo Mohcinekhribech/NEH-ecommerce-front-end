@@ -1,6 +1,6 @@
 <div class="p-4 bg-white w-full rounded-lg">
   <div class="">
-    <h2 class="text-2xl font-bold">Order Info :</h2>
+    <h2 class="text-2xl font-bold">Informations sur la commande :</h2>
     <div
       class="overflow-hidden w-fit border-0 bg-transparent flex items-center hover:bg-surface-100 rounded-none cursor-pointer transition-colors duration-200 mt-4"
     >
@@ -21,7 +21,7 @@
   </div>
   <div class="w-full my-4">
     <div class="flex justify-between">
-        <h4 class="font-semibold text-xl">Ordered For :</h4>
+        <h4 class="font-semibold text-xl">Commandé pour :</h4>
         <!-- <div class="relative">
             <select name="status" [(ngModel)]="order?.status" class="block lowercase w-full px-4 py-1 text-base text-gray-700 bg-white border border-gray-300 rounded-lg  focus:outline-none">
               <option *ngFor="let status of orderStatusArray"  [value]="status">{{ status }}</option>
@@ -29,42 +29,40 @@
         </div> -->
         
     </div>
-    <div class="flex justify-between my-2">
+    <div class="flex justify-between my-2 flex-wrap">
         <div>
-            <p class="text-gray-700"><span class="font-medium text-gray-600 my-2">First name : </span>{{order?.firstName}}</p>
-            <p class="text-gray-700"><span class="font-medium text-gray-600 my-2">Last name : </span>{{order?.lastName}}</p>
-            <p class="text-gray-700"><span class="font-medium text-gray-600 my-2">Country : </span>{{order?.country}}</p>
+            <p class="text-gray-700"><span class="font-medium text-gray-600 my-2">Prénom : </span>{{order?.firstName}}</p>
+            <p class="text-gray-700"><span class="font-medium text-gray-600 my-2">Nom : </span>{{order?.lastName}}</p>
+            <p class="text-gray-700"><span class="font-medium text-gray-600 my-2">Pays : </span>{{order?.country}}</p>
         </div>
         <div>
-            <p class="text-gray-700"><span class="font-medium text-gray-600 my-2">City : </span>{{order?.city}}</p>
-            <p class="text-gray-700"><span class="font-medium text-gray-600 my-2">Zip Code : </span>{{order?.zipCode}}</p>
-            <p class="text-gray-700"><span class="font-medium text-gray-600 my-2">Phone : </span>{{order?.phone}}</p>
+            <p class="text-gray-700"><span class="font-medium text-gray-600 my-2">Ville : </span>{{order?.city}}</p>
+            <p class="text-gray-700"><span class="font-medium text-gray-600 my-2">Code postal : </span>{{order?.zipCode}}</p>
+            <p class="text-gray-700"><span class="font-medium text-gray-600 my-2">Téléphone : </span>{{order?.phone}}</p>
         </div>
         <div>
             <p class="text-gray-700"><span class="font-medium text-gray-600 my-2">Mail : </span>{{order?.phone}}</p>
-            <p class="text-gray-700"><span class="font-medium text-gray-600 my-2">Address : </span>{{order?.address}}</p>
+            <p class="text-gray-700"><span class="font-medium text-gray-600 my-2">Addresse : </span>{{order?.address}}</p>
         </div>
     </div>
   </div>
   <div class="flex space-x-4 p-2 my-2">
     <p>
-        status : <p-button (click)="op.toggle($event)" [ngClass]="getStatusClasses(order?.status)" class="px-2 py-1 rounded-full font-semibold text-xs w-fit h-fit">{{order?.status}}</p-button>
+        statut : <p-button *ngIf="role == 'Admin'" (click)="op.toggle($event)" [ngClass]="getStatusClasses(order?.status)" class="px-2 py-1 rounded-full font-semibold text-xs w-fit h-fit">{{order?.status}}</p-button> 
+        <span *ngIf="role != 'Admin'" [ngClass]="getStatusClasses(order?.status)" class="px-2 py-1 rounded-full font-semibold text-xs w-fit h-fit">{{order?.status}} </span>
     </p>
     <p-overlayPanel #op>
       <div class="p-3">
         <form (submit)="updateStatus()" class="mb-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2">Order Status:</label>
+          <label class="block text-gray-700 text-sm font-bold mb-2">Statut de la commande:</label>
           {{selectedStatus}}
           <select name="status" [(ngModel)]="selectedStatus" class="w-full p-2 border rounded-lg shadow-sm bg-white text-gray-700 focus:ring-2 focus:ring-indigo-400">
             <option *ngFor="let status of orderStatusArray" [value]="status">{{ status }}</option>
           </select>
-          <button type="submit" class="bg-green-400 text-white font-semibold px-2 py-1 rounded-lg mt-1">Save</button>
+          <button type="submit" class="bg-green-400 text-white font-semibold px-2 py-1 rounded-lg mt-1">Sauvegarder</button>
         </form>        
       </div>
     </p-overlayPanel>
-    <p>
-        Payment Status: <span [ngClass]="getStatusClasses(order?.status)" class="px-2 py-1 rounded-full font-semibold text-xs w-fit h-fit">{{order?.status}}</span>
-    </p>
   </div>
 
   <div class="my-2">
@@ -88,7 +86,7 @@
             />
             <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
           </svg>
-          <p class="text-lg font-medium">Products</p>
+          <p class="text-lg font-medium">Produits :</p>
         </div>
         <div
           class="w-full border-t-2 border-b-2 py-2 max-h-[50vh] overflow-y-auto"
@@ -117,7 +115,7 @@
         </div>
         <div class="p-2 w-full">
           <div class="flex justify-between text-lg font-semibold">
-            <p>Total :</p>
+            <p>Totale :</p>
             <p>{{ order?.totalPrice }} $</p>
           </div>
         </div>
