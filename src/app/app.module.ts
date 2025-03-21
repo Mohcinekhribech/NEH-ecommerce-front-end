@@ -50,7 +50,6 @@ import { PrimeNgModule } from './primeng/primeng.module';
 import { PaypalModule } from './payments/paypal/paypal.module';
 import { AboutComponent } from './pages/client-side-pages/about/about.component';
 import { OrderInfoComponent } from './components/orders/order-info/order-info.component';
-import { OrderStatusPipe } from './pipes/order-status.pipe';
 import { FooterComponent } from './components/ui/footer/footer.component';
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
 import { StateCardComponent } from './components/statistics/state-card/state-card.component';
@@ -112,7 +111,6 @@ const jwtModuleOptions: JwtModuleOptions = {
     OrdersClientPageComponent,
     AboutComponent,
     OrderInfoComponent,
-    OrderStatusPipe,
     FooterComponent,
     ClientLayoutComponent,
     StateCardComponent
