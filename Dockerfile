@@ -14,7 +14,7 @@ RUN npm install
 COPY NEH-ecommerce-front-end/ ./
 
 # Construire l'application pour la production
-RUN npm run build --prod
+RUN npm run build --configuration production
 
 # Etape 2 : Utiliser une image NGINX pour servir l'application Angular
 FROM nginx:alpine
