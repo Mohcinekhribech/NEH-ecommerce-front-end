@@ -5,13 +5,13 @@ FROM node:20.12.1 AS build
 WORKDIR /app
 
 # Copier package.json et package-lock.json pour installer les dépendances
-COPY neh_frontend/package*.json ./
+COPY NEH-ecommerce-front-end/package*.json ./
 
 # Installer les dépendances
 RUN npm install
 
 # Copier tout le code de l'application dans l'image
-COPY neh_frontend/ ./
+COPY NEH-ecommerce-front-end/ ./
 
 # Construire l'application pour la production
 RUN npm run build --prod
