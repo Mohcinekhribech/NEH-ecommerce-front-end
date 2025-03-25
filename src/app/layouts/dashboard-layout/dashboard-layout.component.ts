@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserResp } from 'src/app/core/models/UserResp.model';
 import { AuthService } from 'src/app/core/services/auth.service';
 
@@ -8,12 +9,21 @@ import { AuthService } from 'src/app/core/services/auth.service';
   styleUrls: ['./dashboard-layout.component.css']
 })
 export class DashboardLayoutComponent {
-  constructor(private authService:AuthService){}
+  constructor(private authService:AuthService,private router:Router){}
   user : UserResp | null = null
   ngOnInit()
   {
     this.user = this.authService.getAuthUser()
   }
+
+  logout()
+  {
+    this.authService.logout().subscribe(res=>{
+      this.authService.clearAuthToken()
+      this.router.navigate(['/'])
+    });
+  }
+
   sideBar() {
     var side = document.querySelectorAll('.side');
     var sideBar = document.querySelectorAll('.sideBar');

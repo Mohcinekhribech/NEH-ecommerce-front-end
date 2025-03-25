@@ -1,5 +1,5 @@
 <nav>
-  <div class="flex place-content-around md:p-4">
+  <div class="flex place-content-around p-4 items-center">
     <div class="md:hidden p-2">
       <button (click)="toggleMenu()">
         <svg
@@ -37,9 +37,10 @@
       <a
         *ngIf="!isAuthenticate"
         routerLink="/login"
-        class="bg-[#8DB600] text-white px-4 py-2 rounded-lg text-md font-semibold"
+        class="bg-[#8DB600] text-white px-4 py-2 rounded-lg text-md font-semibold flex space-x-2 items-center"
       >
-        Se connecter
+      <li class="pi pi-sign-in"></li>
+        <span class="max-md:hidden">Se connecter</span>
       </a>
     </div>
   </div>

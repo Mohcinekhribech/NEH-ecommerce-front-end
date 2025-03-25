@@ -5,13 +5,13 @@ FROM node:20.12.1 AS build
 WORKDIR /app
 
 # Copier package.json et package-lock.json pour installer les dépendances
-COPY package*.json ./
+COPY neh_frontend/package*.json ./
 
 # Installer les dépendances
 RUN npm install
 
 # Copier tout le code de l'application dans l'image
-COPY . .
+COPY neh_frontend/ ./
 
 # Construire l'application pour la production
 RUN npm run build --prod
@@ -21,6 +21,8 @@ FROM nginx:alpine
 
 # Copier les fichiers générés par le build Angular dans le répertoire NGINX
 COPY --from=build /app/dist/neh_frontend /usr/share/nginx/html
+
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Exposer le port 4200
 EXPOSE 80

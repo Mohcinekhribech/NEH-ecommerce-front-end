@@ -20,10 +20,11 @@ export class LoginPageComponent {
   };
   error: String = '';
   login() {
-    this.authService.authentication(this.info).subscribe((data) => {
+    this.authService.authentication(this.info).subscribe(
+      (data) => {
       if (data.access_token && data.user) {
         this.authService.setAuthInfo(data.access_token, data.user);
-        if (data.user.role == 'Admin') this.router.navigate(['/dashboard/products']);
+        if (data.user.role == 'Admin') this.router.navigate(['/dashboard']);
         else this.router.navigate(['/']);
       } else {
         this.error = 'email or password incorrect';
@@ -34,6 +35,10 @@ export class LoginPageComponent {
       //     token: data.access_token,
       //   })
       // );
-    });
+    },
+    err => {
+      this.error = 'email or password incorrect';
+    }
+  );
   }
 }

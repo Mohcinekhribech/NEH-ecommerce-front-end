@@ -18,9 +18,12 @@
                 <div class="w-full mt-4">
                     <input class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg focus:border-[#8EAE69] focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-[#8EAE69]" name="password" [(ngModel)]="info.password" type="password" placeholder="Password" aria-label="Password" />
                 </div>
+                <div *ngIf="error" class="text-red-500 text-xs">
+                    {{error}}
+                </div>
     
                 <div class="flex items-center justify-between mt-4">
-                    <a href="#" class="text-sm text-gray-600 hover:text-gray-500">Forget Password?</a>
+                    <div></div>
     
                     <button type="submit" class="px-6 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#49990B] rounded-lg focus:outline-none focus:ring-opacity-50">
                         Sign In

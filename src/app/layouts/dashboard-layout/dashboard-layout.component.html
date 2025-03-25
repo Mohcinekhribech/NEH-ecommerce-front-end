@@ -12,29 +12,33 @@
         <div class="h-[2px] bg-[#8DB600] my-2">
         </div>
         <a routerLink="/dashboard" class="flex space-x-4 text-sm items-center text-[#00000] hover:bg-[#8DB600] hover:text-[#EBEBEB] p-2 rounded-lg transition ease-in-out delay-150 my-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-layout-dashboard" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4h6v8h-6z" /><path d="M4 16h6v4h-6z" /><path d="M14 12h6v8h-6z" /><path d="M14 4h6v4h-6z" /></svg>
+            <li class="pi pi-chart-pie"></li>
             <p>Dashboard</p>
         </a>
         <a routerLink="/dashboard/products" class="flex space-x-4 text-sm items-center text-[#00000] hover:bg-[#8DB600] hover:text-[#EBEBEB] p-2 rounded-lg transition ease-in-out delay-150 my-2">
-            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-codesandbox"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M20 7.5v9l-4 2.25l-4 2.25l-4 -2.25l-4 -2.25v-9l4 -2.25l4 -2.25l4 2.25z" /><path d="M12 12l4 -2.25l4 -2.25" /><path d="M12 12l0 9" /><path d="M12 12l-4 -2.25l-4 -2.25" /><path d="M20 12l-4 2v4.75" /><path d="M4 12l4 2l0 4.75" /><path d="M8 5.25l4 2.25l4 -2.25" /></svg>
+            <li class="pi pi-box"></li>
             <p>Products</p>
         </a>
         <a routerLink="/dashboard/categories" class="flex space-x-4 text-sm items-center text-[#00000] hover:bg-[#8DB600] hover:text-[#EBEBEB] p-2 rounded-lg transition ease-in-out delay-150 my-2">
-            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-category"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4h6v6h-6z" /><path d="M14 4h6v6h-6z" /><path d="M4 14h6v6h-6z" /><path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /></svg>
+            <li class="pi pi-objects-column"></li>
             <p>Categories</p>
         </a>
         <a routerLink="/dashboard/orders" class="flex space-x-4 text-sm items-center text-[#00000] hover:bg-[#8DB600] hover:text-[#EBEBEB] p-2 rounded-lg transition ease-in-out delay-150 my-2">
-            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-bag"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" /><path d="M9 11v-5a3 3 0 0 1 6 0v5" /></svg>
+            <li class="pi pi-shop"></li>
             <p>Orders</p>
         </a>
-        <a routerLink="/answers" class="flex space-x-4 text-sm items-center text-[#00000] hover:bg-[#8DB600] hover:text-[#EBEBEB] p-2 rounded-lg transition ease-in-out delay-150 my-2">
+        <button (click)="logout()" class="flex space-x-4 text-sm items-center text-[#00000] hover:bg-[#8DB600] hover:text-[#EBEBEB] p-2 rounded-lg transition ease-in-out delay-150 my-2 w-full">
+            <li class="pi pi-sign-out"></li>
+            <p>Logout</p>
+        </button>
+        <!-- <a routerLink="/answers" class="flex space-x-4 text-sm items-center text-[#00000] hover:bg-[#8DB600] hover:text-[#EBEBEB] p-2 rounded-lg transition ease-in-out delay-150 my-2">
             <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-users"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /><path d="M21 21v-2a4 4 0 0 0 -3 -3.85" /></svg>
             <p>Clients</p>
-        </a>
-        <a routerLink="/dashboard/tags" class="flex space-x-4 text-sm items-center text-[#00000] hover:bg-[#8DB600] hover:text-[#EBEBEB] p-2 rounded-lg transition ease-in-out delay-150 my-2">
+        </a> -->
+        <!-- <a routerLink="/dashboard/tags" class="flex space-x-4 text-sm items-center text-[#00000] hover:bg-[#8DB600] hover:text-[#EBEBEB] p-2 rounded-lg transition ease-in-out delay-150 my-2">
             <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-tag"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M3 6v5.172a2 2 0 0 0 .586 1.414l7.71 7.71a2.41 2.41 0 0 0 3.408 0l5.592 -5.592a2.41 2.41 0 0 0 0 -3.408l-7.71 -7.71a2 2 0 0 0 -1.414 -.586h-5.172a3 3 0 0 0 -3 3z" /></svg>
             <p>Tags</p>
-        </a>
+        </a> -->
         
     </div>
     <div class="w-full pr-2 overflow-y-scroll max-h-[97vh]">
