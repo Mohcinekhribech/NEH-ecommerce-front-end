@@ -15,7 +15,7 @@
       <div class="rounded-lg w-fit flex justify-center p-2">
         <img
           class="max-h-[400px] rounded-lg mx-auto"
-          [src]="'http://localhost:9090/api/upload/' + selectedImage"
+          [src]="apiUrl+'/'+ + selectedImage"
           alt=""
         />
       </div>
@@ -24,7 +24,7 @@
           *ngFor="let media of product.productMedias"
           class="h-full rounded-lg"
           (click)="selectAnImage(media.mediaName)"
-          [src]="'http://localhost:9090/api/upload/' + media.mediaName"
+          [src]="apiUrl+'/'+ + media.mediaName"
           alt=""
         />
       </div>

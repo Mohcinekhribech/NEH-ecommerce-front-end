@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CartItem } from 'src/app/core/models/CartItem.model';
 import { ProductDtoResponse } from 'src/app/core/models/ProductDtoResponse.model';
 import { CartService } from 'src/app/core/services/cart.service';
+import { environment } from 'src/environment/environment';
 
 @Component({
   selector: 'app-panier-overlay',
@@ -13,6 +14,7 @@ export class PanierOverlayComponent {
   total:number = 0;
   cartItems:CartItem[]=[]
   itemNum:string = ''
+  apiUrl = environment.apiUrl;
   constructor(private cartService:CartService){
   }
 

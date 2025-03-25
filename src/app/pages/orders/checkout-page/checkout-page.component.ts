@@ -14,6 +14,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { CartService } from 'src/app/core/services/cart.service';
 import { OrderService } from 'src/app/core/services/order.service';
 import { PayPalService } from 'src/app/core/services/paypal.service';
+import { environment } from 'src/environment/environment';
 
 @Component({
   selector: 'app-checkout-page',
@@ -26,6 +27,7 @@ export class CheckoutPageComponent {
   total: number = 0;
   orderId: string = '';
   cartItems: CartItem[] = [];
+  apiUrl = environment.apiUrl;
   user: UserResp | null = null;
   order: OrderDtoRequest = {
     firstName: "",

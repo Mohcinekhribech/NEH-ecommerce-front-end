@@ -5,16 +5,16 @@ FROM node:20.12.1 AS build
 WORKDIR /app
 
 # Copier package.json et package-lock.json pour installer les dépendances
-COPY NEH-ecommerce-front-end/package*.json ./
+COPY neh_frontend/package*.json ./
 
 # Installer les dépendances
 RUN npm install
 
 # Copier tout le code de l'application dans l'image
-COPY NEH-ecommerce-front-end/ ./
+COPY neh_frontend/ ./
 
 # Construire l'application pour la production
-RUN npm run build --configuration production
+RUN npm run build --prod
 
 # Etape 2 : Utiliser une image NGINX pour servir l'application Angular
 FROM nginx:alpine

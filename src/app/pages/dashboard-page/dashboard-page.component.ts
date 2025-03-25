@@ -7,6 +7,7 @@ import { ProductDtoResponse } from 'src/app/core/models/ProductDtoResponse.model
 import { DashboardService } from 'src/app/core/services/dashboard.service';
 import { OrderService } from 'src/app/core/services/order.service';
 import { ProductService } from 'src/app/core/services/product.service';
+import { environment } from 'src/environment/environment';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -16,6 +17,7 @@ import { ProductService } from 'src/app/core/services/product.service';
 export class DashboardPageComponent {
   products:ProductDtoResponse[]=[]
   orders:OrderDtoResponse[]=[]
+  apiUrl = environment.apiUrl;
   dashboardDto:DashboardDto={
     totalRevenue: 0,
     revenueChange: 0,

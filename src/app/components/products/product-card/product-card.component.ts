@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { ProductDtoResponse } from 'src/app/core/models/ProductDtoResponse.model';
 import { CartService } from 'src/app/core/services/cart.service';
+import { environment } from 'src/environment/environment';
 
 @Component({
   selector: 'app-product-card',
@@ -23,6 +24,7 @@ export class ProductCardComponent {
     benefits: '',
     howToUse: ''
   }
+  apiUrl = environment.apiUrl;
   constructor(private cartService:CartService,private messageService : MessageService){}
 
   addToCart(product : ProductDtoResponse)

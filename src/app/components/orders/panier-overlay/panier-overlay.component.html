@@ -10,7 +10,7 @@
             </div>
             <div class="w-full border-t-2 border-b-2 py-2 max-h-[50vh] overflow-y-auto">
                 <div *ngFor="let item of cartItems" class="flex p-2 justify-between">
-                    <img class="max-w-[60px]  rounded-md" [src]="'http://localhost:9090/api/upload/'+ item.product.productMedias[0].mediaName" alt="">
+                    <img class="max-w-[60px]  rounded-md" [src]="apiUrl+'/'+ item.product.productMedias[0].mediaName" alt="">
                     <div>
                         <p class="text-sm font-semibold">{{item.product.name}}</p>
                         <div class="flex space-x-2">

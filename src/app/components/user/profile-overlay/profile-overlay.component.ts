@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { UserResp } from 'src/app/core/models/UserResp.model';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { environment } from 'src/environment/environment';
 
 @Component({
   selector: 'app-profile-overlay',
@@ -24,6 +25,7 @@ export class ProfileOverlayComponent {
     zipCode: "",
     country: ""
   }
+  apiUrl = environment.apiUrl;
   show:boolean = false
 
   constructor(private authService:AuthService){}

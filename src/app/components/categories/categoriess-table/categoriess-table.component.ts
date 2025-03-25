@@ -3,6 +3,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { CategoryDtoRequest } from 'src/app/core/models/CategoryDtoRequest.model';
 import { CategoryDtoResponse } from 'src/app/core/models/CategoryDtoResponse.model';
 import { CategoryService } from 'src/app/core/services/category.service';
+import { environment } from 'src/environment/environment';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,6 +16,7 @@ export class CategoriessTableComponent {
   constructor(private categoryService:CategoryService,private messageService: MessageService, private confirmationService: ConfirmationService){}
   categories : CategoryDtoResponse[] = []
   showUpdateForm:boolean = false;
+  apiUrl = environment.apiUrl;
   selectedCategory:CategoryDtoRequest ={
     name: '',
     description: '',

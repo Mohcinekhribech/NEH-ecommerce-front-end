@@ -20,7 +20,7 @@
             <tr *ngFor="let category of categories" class="bg-white border-b ">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                     <div class="h-[60px]">
-                        <img class="h-full w-fit" [src]="'http://localhost:9090/api/upload/'+category.image" alt="" srcset="">
+                        <img class="h-full w-fit" [src]="apiUrl+'/'+category.image" alt="" srcset="">
                     </div>
                 </th>
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">

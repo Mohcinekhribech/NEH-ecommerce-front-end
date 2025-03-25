@@ -29,7 +29,7 @@
             <tr *ngFor="let order of orders?.content" class="bg-white border-b text-xs">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                     <div class="overflow-hidden w-full border-0 bg-transparent flex items-center  hover:bg-surface-100 rounded-none cursor-pointer transition-colors duration-200">
-                        <p-avatar [image]="'http://localhost:9090/api/upload/' + order.client.profilePic" class="mr-2" shape="circle" />
+                        <p-avatar [image]="apiUrl+'/'+ order.client.profilePic" class="mr-2" shape="circle" />
                         <div>
                             <p class="text-gray-700">
                                 {{ order.client.firstName }} 

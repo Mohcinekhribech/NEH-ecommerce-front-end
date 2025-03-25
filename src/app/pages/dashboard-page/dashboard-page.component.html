@@ -127,7 +127,7 @@
             </div>
             <div class="space-y-4">
                 <div *ngFor="let product of products" class="flex items-center gap-4">
-                    <img [src]="'http://localhost:9090/api/upload/'+ product.productMedias[0].mediaName" alt="Produit" class="h-16 w-16 rounded-lg object-cover">
+                    <img [src]="apiUrl+'/'+ product.productMedias[0].mediaName" alt="Produit" class="h-16 w-16 rounded-lg object-cover">
                     <div class="flex-1">
                         <h3 class="font-medium text-gray-600">{{product.name}}</h3>
                     </div>

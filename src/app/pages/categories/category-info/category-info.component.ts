@@ -4,6 +4,7 @@ import { CategoryDtoResponse } from 'src/app/core/models/CategoryDtoResponse.mod
 import { PaginatedProducts } from 'src/app/core/models/pageable/pageable-products-dto.model';
 import { CategoryService } from 'src/app/core/services/category.service';
 import { ProductService } from 'src/app/core/services/product.service';
+import { environment } from 'src/environment/environment';
 
 @Component({
   selector: 'app-category-info',
@@ -13,6 +14,7 @@ import { ProductService } from 'src/app/core/services/product.service';
 export class CategoryInfoComponent {
     constructor(private categoryService:CategoryService , private productService:ProductService , private route : ActivatedRoute, private router : Router){}
     categoryId:string|null = '' ;
+    apiUrl = environment.apiUrl;
     category : CategoryDtoResponse ={
       id: '',
       name: '',
