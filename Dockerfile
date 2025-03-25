@@ -20,7 +20,7 @@ RUN npm run build --prod
 FROM nginx:alpine
 
 # Copier les fichiers générés par le build Angular dans le répertoire NGINX
-COPY --from=build /app/dist/neh_frontend /usr/share/nginx/html
+COPY --from=build /app/dist/NEH-ecommerce-front-end /usr/share/nginx/html
 
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
