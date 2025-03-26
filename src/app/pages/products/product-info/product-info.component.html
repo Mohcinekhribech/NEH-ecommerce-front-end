@@ -24,7 +24,7 @@
           *ngFor="let media of product.productMedias"
           class="h-full rounded-lg"
           (click)="selectAnImage(media.mediaName)"
-          [src]="apiUrl+'/'+ + media.mediaName"
+          [src]="apiUrl+'/upload/'+ + media.mediaName"
           alt=""
         />
       </div>

@@ -26,7 +26,7 @@
         <tbody>
           <tr *ngFor="let item of cartItems" class="bg-white border-b  border-gray-200">
             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-              <img class="max-w-[80px] h-fit mx-auto my-auto rounded-md" [src]="apiUrl+'/'+item.product.productMedias[0].mediaName" alt=""/>
+              <img class="max-w-[80px] h-fit mx-auto my-auto rounded-md" [src]="apiUrl+'/upload/'+item.product.productMedias[0].mediaName" alt=""/>
             </th>
             <td class="px-6 py-4">{{item.product.name}}</td>
             <td class="px-6 py-4">{{item.product.category?.name}}</td>

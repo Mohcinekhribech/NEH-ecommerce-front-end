@@ -82,7 +82,7 @@
             <tr *ngFor="let product of products?.content" class="bg-white border-b ">
                 <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap">
                     <div>
-                        <img class="h-16 w-16 rounded-lg object-cover" [src]="apiUrl+'/'+product.productMedias[0].mediaName" alt="" srcset="">
+                        <img class="h-16 w-16 rounded-lg object-cover" [src]="apiUrl+'/upload/'+product.productMedias[0].mediaName" alt="" srcset="">
                     </div>
                 </th>
                 <th scope="row" class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">

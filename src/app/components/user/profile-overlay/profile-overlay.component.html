@@ -1,7 +1,7 @@
 <div class="relative">
     <p-button (click)="pr.toggle($event)">
         <div class="overflow-hidden w-full border-0 bg-transparent flex items-center hover:bg-surface-100 rounded-none cursor-pointer transition-colors duration-200">
-            <p-avatar [image]="apiUrl+'/'+ profile?.profilePic" class="mr-2" shape="circle" />
+            <p-avatar [image]="apiUrl+'/upload/'+ profile?.profilePic" class="mr-2" shape="circle" />
             <h3 class="text-gray-700 max-md:hidden">
                 {{ profile?.firstName }}
             </h3>
@@ -11,7 +11,7 @@
         <div class="w-fit">
             <div>
                 <div class="overflow-hidden w-full border-0 bg-transparent flex items-start p-2 pl-4 hover:bg-surface-100 rounded-none cursor-pointer transition-colors duration-200">
-                    <p-avatar [image]="apiUrl+'/'+ profile?.profilePic" class="mr-2" shape="circle" />
+                    <p-avatar [image]="apiUrl+'/upload/'+ profile?.profilePic" class="mr-2" shape="circle" />
                     <span class="inline-flex flex-col">
                         <span class="font-semibold">{{profile?.firstName}}</span>
                         <span class="text-xs">{{profile?.role}}</span>
