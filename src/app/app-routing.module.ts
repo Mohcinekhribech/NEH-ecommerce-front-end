@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'products', component: ProductsClientPageComponent},
   { path: 'categories', component: CategoriesClientPageComponent},
   { path: 'checkout', component: CheckoutPageComponent, canActivate: [AuthGuard], data: { allowedRoles: ['Client'] }},
-  { path: 'card', component: CardPageComponent, canActivate: [AuthGuard], data: { allowedRoles: ['Client'] }},
+  { path: 'card', component: CardPageComponent},
   { path: 'orders', component: OrdersClientPageComponent, canActivate: [AuthGuard], data: { allowedRoles: ['Client'] }},
   { path: 'products/:id', component: ProductInfoComponent},
   { path: 'categories/:id', component: CategoryInfoComponent},

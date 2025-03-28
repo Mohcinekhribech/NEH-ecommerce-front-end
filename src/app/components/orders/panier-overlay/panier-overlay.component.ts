@@ -29,8 +29,22 @@ export class PanierOverlayComponent {
 
   removeProduct(productId : String)
   {
+    console.log("msse7")
     this.cartService.removeFromCart(productId)
     this.cartItems = this.cartItems.filter(item => item.product.id !== productId);
+  }
+
+  addOne(cartItem : CartItem)
+  {
+    console.log("zid")
+    if(cartItem.quantity+1 <= cartItem.product.quantity)
+      this.cartService.updateQuantity(cartItem.product.id,cartItem.quantity++)
+  }
+
+  removeOne(cartItem : CartItem)
+  {
+    console.log("n9ess")
+      this.cartService.updateQuantity(cartItem.product.id,cartItem.quantity--)
   }
 
 

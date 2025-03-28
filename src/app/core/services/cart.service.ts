@@ -44,13 +44,17 @@ export class CartService {
   // Update product quantity in cart
   updateQuantity(productId: String, quantity: number): void {
       const item = this.cartItems.find(item => item.product.id === productId);
-
-      if (item && quantity > 0) {
-          item.quantity = quantity;
-      } else if (item && quantity === 0) {
+      if (item && quantity-1 > 0) {
+        this.cartItems = this.cartItems.map(itemC => {
+            if(itemC.product.id === productId)
+            {
+                return itemC
+            }
+            return itemC
+        });
+      } else if (item && quantity-1 === 0) {
           this.removeFromCart(productId);
       }
-
       this.saveCart();
   }
 
@@ -80,6 +84,7 @@ export class CartService {
 
   // Save cart to local storage
   private saveCart(): void {
+      console.log(this.cartItems)
       localStorage.setItem(this.cartKey, JSON.stringify(this.cartItems));
       localStorage.setItem('total', this.calcTotalPrice().toString());
       this.cartItemsSubject.next(this.cartItems);

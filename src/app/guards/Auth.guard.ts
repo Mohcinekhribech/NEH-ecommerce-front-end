@@ -23,6 +23,7 @@ export class AuthGuard implements CanActivate {
     if (this.authService.isAuthenticated() && allowedRoles.includes(this.authService.getAuthUser()?.role) && !this.isTokenExpired(token)) {      
       return of(true);
     } else {
+      console.log("wassl hna")
       this.authService.clearAuthToken()
       this.authService.logout()
       return this.router.createUrlTree(['/login']);
