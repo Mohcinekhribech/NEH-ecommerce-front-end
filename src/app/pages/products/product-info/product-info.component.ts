@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductDtoResponse } from 'src/app/core/models/ProductDtoResponse.model';
+import { CartService } from 'src/app/core/services/cart.service';
 import { ProductService } from 'src/app/core/services/product.service';
 import { environment } from 'src/environment/environment';
 
@@ -10,7 +11,7 @@ import { environment } from 'src/environment/environment';
   styleUrls: ['./product-info.component.css']
 })
 export class ProductInfoComponent {
-  constructor(private productService:ProductService , private route : ActivatedRoute, private router : Router){}
+  constructor(private productService:ProductService , private  cartService:CartService, private route : ActivatedRoute, private router : Router){}
   productId:string|null = '' ;
   apiUrl = environment.apiUrl;
   product : ProductDtoResponse ={
@@ -44,5 +45,9 @@ export class ProductInfoComponent {
   selectAnImage(imageLink:String)
   {
     this.selectedImage = imageLink
+  }
+  addToCart(product : ProductDtoResponse)
+  {
+    this.cartService.addToCart(product)
   }
 }
