@@ -9,11 +9,17 @@ import { environment } from 'src/environment/environment';
 })
 export class ProductService {
   private apiUrl = environment.apiUrl;
+  private dhToEurRate :number = 11;
 
   constructor(private http: HttpClient) {}
 
   getSomeData(): Observable<any> {
     return this.http.get(`${this.apiUrl}/product`);
+  }
+
+  getEuroPrice(finalPrice : number): number {
+    const rawPrice = finalPrice / this.dhToEurRate;
+    return Math.ceil(rawPrice / 5) * 5;
   }
 
   getBestProducts(): Observable<any> {

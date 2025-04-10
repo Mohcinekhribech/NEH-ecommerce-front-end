@@ -12,7 +12,7 @@ leaveClass="animate-fadeout" class="w-fit rounded-lg shadow animate-duration-100
     </h5>
     <div class="flex justify-between py-2">
         <p class="font-semibold">
-            {{product.finalPrice}} £
+            {{product.finalPrice}} DH ({{productService.getEuroPrice(product.finalPrice)}} £)
         </p>
         <p-button class="font-semibold bg-[#49990B] hover:bg-[#8DB600] duration-100 rounded-lg flex py-0.5  px-2 py-1 text-white" (click)="addToCart(product)" label="Ajouter" icon="pi pi-plus-circle" />
 

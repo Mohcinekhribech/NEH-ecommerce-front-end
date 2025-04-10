@@ -4,6 +4,6 @@ export interface CategoryDtoResponse {
     id:String|''
     name:String | ''
      image:String | ''
-    description:String | '' 
+    description:string 
     products:ProductDtoRequest[]
 }

@@ -1,13 +1,21 @@
-<div class="p-2 rounded-lg shadow flex space-x-2 w-fit max-sm:flex-col max-sm:space-y-2">
-    <div class="">
-        <img class="max-w-[140px] max-h-[140px] object-cover mx-auto rounded-lg " [src]="apiUrl+'/upload/'+category.image"/>
+<div class="p-4 w-[500px] rounded-lg shadow flex space-x-6 w-fit max-sm:flex-col max-sm:space-y-2 bg-gray-50">
+    <div class=" w-[100px] h-[100px] mx-auto my-auto">
+        <img class="max-w-[100px] max-h-[100px] my-auto object-cover mx-auto rounded-lg " [src]="apiUrl+'/upload/'+category.image"/>
     </div>
     <div class="max-w-[378px]">
-        <h3>
-            <a [routerLink]="'/categories/'+category.id" class="text-xl font-semibold">{{category.name}}</a>
-        </h3>
-        <p class="text-xs mt-2">
-            {{category.description}}
-        </p>
+        <div>
+            <h3>
+                <a [routerLink]="'/categories/'+category.id" class="text-xl font-semibold">{{category.name}}</a>
+            </h3>
+            <p class="text-sm mt-2">
+                {{ category.description.length > 100 ? (category.description | slice:0:150) + '...' : category.description }}
+            </p>
+        </div>
+        <div class="mt-[2px]">
+            <a [routerLink]="'/categories/'+category.id" class="text-[#49990B] px-[6px] h-10 rounded-lg text-sm font-medium flex space-x-[6px] items-center">
+                <span>View More</span>
+                <li class="pi pi-arrow-right"></li>
+            </a>
+        </div>
     </div>
 </div>

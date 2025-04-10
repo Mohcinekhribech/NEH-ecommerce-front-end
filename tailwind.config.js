@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         "bodoni-moda": ["Bodoni Moda", "serif"], // Add Bodoni Moda as a custom font family
+        "poppins": ["Poppins", "sans-serif"], 
       },
       animation: {
         fadeinleft: "fadeInLeft 1s ease-in-out",

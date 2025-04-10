@@ -23,12 +23,12 @@
           alt=""
         />
       </div>
-      <div class="p-2 h-[15ch] flex justify-center space-x-1 overflow-y-auto mx-6 ">
+      <div *ngIf="product.productMedias.length > 1 " class="p-2 h-[15ch] flex justify-center space-x-1 overflow-y-auto mx-6 ">
         <img
           *ngFor="let media of product.productMedias"
           class="h-full rounded-lg"
           (click)="selectAnImage(media.mediaName)"
-          [src]="apiUrl+'/upload/'+ + media.mediaName"
+          [src]="apiUrl+'/upload/'+ media.mediaName"
           alt=""
         />
       </div>
