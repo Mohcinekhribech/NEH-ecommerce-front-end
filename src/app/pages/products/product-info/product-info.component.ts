@@ -42,6 +42,20 @@ export class ProductInfoComponent {
               name: 'description',
               content:' '+this.product.description+''
             });
+            this.metaService.updateTag({
+              property: 'og:title',
+              content: this.product.name +' | Neh Cosmetics'
+            });
+          
+            this.metaService.updateTag({
+              property: 'og:description',
+              content: ' '+this.product.description+''
+            });
+
+            this.metaService.updateTag({
+              property: 'og:image',
+              content: 'https://neh-cosmetics.com/upload/'+this.product.productMedias[0].mediaName
+            });
             this.selectedImage = this.product.productMedias[0].mediaName
           })
     });
