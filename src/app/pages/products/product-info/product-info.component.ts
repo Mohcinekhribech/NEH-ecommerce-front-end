@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductDtoResponse } from 'src/app/core/models/ProductDtoResponse.model';
 import { CartService } from 'src/app/core/services/cart.service';
@@ -11,10 +12,10 @@ import { environment } from 'src/environment/environment';
   styleUrls: ['./product-info.component.css']
 })
 export class ProductInfoComponent {
-  constructor(private productService:ProductService , private  cartService:CartService, private route : ActivatedRoute, private router : Router){}
-  productId:string|null = '' ;
+  constructor(private productService: ProductService, private cartService: CartService, private route: ActivatedRoute, private router: Router, private titleService: Title, private metaService: Meta) { }
+  productId: string | null = '';
   apiUrl = environment.apiUrl;
-  product : ProductDtoResponse ={
+  product: ProductDtoResponse = {
     id: '',
     name: '',
     quantity: 0,
@@ -28,26 +29,28 @@ export class ProductInfoComponent {
     benefits: '',
     howToUse: ''
   }
-  selectedImage:String = ""
-  ngOnInit()
-  {
+  selectedImage: String = ""
+  ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.productId = params.get('id');
-      if(this.productId)
+      if (this.productId)
         this.productService.getOneProduct(this.productId)
-      .subscribe(res => {
-        this.product = res;
-        this.selectedImage = this.product.productMedias[0].mediaName
-      })
+          .subscribe(res => {
+            this.product = res;
+            this.titleService.setTitle( this.product.name +' | Neh Cosmetics');
+            this.metaService.updateTag({
+              name: 'description',
+              content:' '+this.product.description+''
+            });
+            this.selectedImage = this.product.productMedias[0].mediaName
+          })
     });
   }
 
-  selectAnImage(imageLink:String)
-  {
+  selectAnImage(imageLink: String) {
     this.selectedImage = imageLink
   }
-  addToCart(product : ProductDtoResponse)
-  {
+  addToCart(product: ProductDtoResponse) {
     this.cartService.addToCart(product)
   }
 }
