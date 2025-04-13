@@ -1,8 +1,10 @@
-<div *ngIf="(loading$ | async)" class="backdrop-brightness-[0.9] overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-40 fw-full md:inset-0 h-screen max-h-full">
-    <p-progressSpinner 
-      class="custom-overlay-spinner">
-    </p-progressSpinner>
-</div>
+<ng-container *ngIf="loading$ | async as isLoading">
+  <div *ngIf="isLoading" class="backdrop-brightness-[0.9] overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-40 fw-full md:inset-0 h-screen max-h-full">
+      <p-progressSpinner 
+        class="custom-overlay-spinner">
+      </p-progressSpinner>
+  </div>
+</ng-container>
 <router-outlet></router-outlet>
 <p-confirmPopup/>
 <p-toast />

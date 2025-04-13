@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { LoadingService } from './core/services/loading.service';
 
 @Component({
@@ -10,5 +10,8 @@ export class AppComponent {
   title = 'neh_frontend';
   loading$ = this.loadingService.loading$;
 
-  constructor(private loadingService: LoadingService) {}
+  constructor(private loadingService: LoadingService , private cd: ChangeDetectorRef) {}
+  ngAfterViewInit() {
+    this.cd.detectChanges();
+  }
 }

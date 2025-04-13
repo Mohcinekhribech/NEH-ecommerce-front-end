@@ -1,20 +1,25 @@
 <div
  pAnimateOnScroll
 enterClass="animate-scalein"
-leaveClass="animate-fadeout" class="w-fit rounded-lg shadow animate-duration-1000 animate-ease-in-out">
-    <img class="md:h-[300px] md:w-[300px] max-md:h-[180px] max-md:w-[180px] object-cover rounded-lg p-4 mx-auto" [src]="apiUrl+'/upload/'+ product.productMedias[0].mediaName"/>
- <div class="px-4 pb-4">
-    <a [routerLink]="'/products/'+product.id" class="font-semibold max-md:text-md md:text-xl md:w-[250px]">
+leaveClass="animate-fadeout" class="md:max-w-[280px] max-md:max-w-[180px] rounded-lg shadow animate-duration-1000 animate-ease-in-out bg-gray-50">
+<a [routerLink]="'/products/'+product.id" >
+    <img class="md:h-[300px] md:w-[300px] max-md:h-[180px] max-md:w-[180px] object-cover rounded-lg md:p-4 max-md:p-2 mx-auto" [src]="apiUrl+'/upload/'+ product.productMedias[0].mediaName"/>
+</a>
+ <div class="md:px-4 md:pb-4 max-md:px-4 max-md:pb-2 w-full">
+    <a [routerLink]="'/products/'+product.id" class="font-semibold max-md:text-[16px] md:text-lg md:w-[250px] line-clamp-1">
         {{product.name}}
     </a>
     <h5 class="text-xs font-bold">
         {{product.category?.name}}
     </h5>
-    <div class="flex justify-between py-2">
-        <p class="font-semibold">
+    <div class="flex justify-between py-2  align-center">
+        <p class="font-semibold text-[16px]">
             {{product.finalPrice}} DH ({{productService.getEuroPrice(product.finalPrice)}} £)
         </p>
-        <p-button class="font-semibold bg-[#49990B] hover:bg-[#8DB600] duration-100 rounded-lg flex py-0.5  px-2 py-1 text-white" (click)="addToCart(product)" label="Ajouter" icon="pi pi-plus-circle" />
+        <button class="font-semibold w-fit h-fit bg-[#49990B] hover:bg-[#8DB600] duration-100 rounded-lg flex space-x-1  items-center  px-[6px] py-[6px] text-white" (click)="addToCart(product)">
+            <li class="pi pi-plus-circle h-fit"></li>
+            <p class="max-md:hidden">Ajouter</p>
+        </button>
 
     </div>
  </div>

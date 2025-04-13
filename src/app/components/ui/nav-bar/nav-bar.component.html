@@ -1,47 +1,50 @@
-<nav>
-  <div class="flex place-content-around p-4 items-center">
-    <div class="md:hidden p-2">
-      <button (click)="toggleMenu()">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="40"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"
+<nav class="md:p-4 max-md:p-2 max-w-7xl mx-auto">
+  <div class="rounded-full border-[2px]">
+    <div class="flex max-md:justify-between md:place-content-between md:w-[90%] mx-auto md:p-2 max-md:p-1 items-center">
+      <div class="md:hidden p-2">
+        <button (click)="toggleMenu()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M4 6l16 0" />
+            <path d="M4 12l16 0" />
+            <path d="M4 18l16 0" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex space-x-1 items-center">
+        <img class="md:w-[60px] max-md:w-[40px] rounded-full md:h-[60px] max-md:h-[40px]" src="assets/logo.jpg"/>
+        <h1 class="text-gray-700 text-xl font-semibold max-lg:hidden">Neh Cosmetics</h1>
+      </div>
+      <ul class="max-md:hidden flex space-x-10 p-4 text-lg font-[600] font-bodoni-moda text-gray-700">
+        <li><a class="hover:text-[#8DB600] active:text-[#8DB600]" routerLink="">Accueil</a></li>
+        <li><a class="hover:text-[#8DB600] active:text-[#8DB600]" routerLink="/products">Produits</a></li>
+        <li><a class="hover:text-[#8DB600] active:text-[#8DB600]" routerLink="/categories">Catégories</a></li>
+        <li><a class="hover:text-[#8DB600] active:text-[#8DB600]" routerLink="/about">À propos</a></li>
+      </ul>
+      <div class="p-4 flex space-x-4">
+        
+        <app-panier-overlay></app-panier-overlay>
+        <app-profile-overlay (notifyParent)="isAuthenticate=false" *ngIf="isAuthenticate" [profile]="user"></app-profile-overlay>
+        <a
+          *ngIf="!isAuthenticate"
+          routerLink="/login"
+          class="bg-[#8DB600] text-white px-4 py-2 rounded-lg text-md font-semibold flex space-x-2 items-center"
         >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M4 6l16 0" />
-          <path d="M4 12l16 0" />
-          <path d="M4 18l16 0" />
-        </svg>
-      </button>
-    </div>
-    <div class="">
-      <img class="w-[60px] rounded-full h-[60px]" src="assets/logo.jpg"/>
-    </div>
-    <ul class="max-md:hidden flex space-x-10 p-4 text-lg font-[600] font-bodoni-moda text-gray-700">
-      <li><a class="hover:text-[#8DB600] active:text-[#8DB600]" routerLink="">Accueil</a></li>
-      <li><a class="hover:text-[#8DB600] active:text-[#8DB600]" routerLink="/products">Produits</a></li>
-      <li><a class="hover:text-[#8DB600] active:text-[#8DB600]" routerLink="/categories">Catégories</a></li>
-      <li><a class="hover:text-[#8DB600] active:text-[#8DB600]" routerLink="/about">À propos</a></li>
-    </ul>
-    <div class="p-4 flex space-x-4">
-      
-      <app-panier-overlay></app-panier-overlay>
-      <app-profile-overlay (notifyParent)="isAuthenticate=false" *ngIf="isAuthenticate" [profile]="user"></app-profile-overlay>
-      <a
-        *ngIf="!isAuthenticate"
-        routerLink="/login"
-        class="bg-[#8DB600] text-white px-4 py-2 rounded-lg text-md font-semibold flex space-x-2 items-center"
-      >
-      <li class="pi pi-sign-in"></li>
-        <span class="max-md:hidden">Se connecter</span>
-      </a>
+        <li class="pi pi-sign-in"></li>
+          <span class="max-lg:hidden">Se connecter</span>
+        </a>
+      </div>
     </div>
   </div>
   <div *ngIf="menuOpen" class="md:hidden shadow-md p-4">

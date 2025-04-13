@@ -33,9 +33,9 @@ export class AuthService {
     return decodedToken;
   }
 
-  setAuthInfo(token: string,user:UserResp): void {
-    this.cookieService.set('token', token);
-    this.cookieService.set('user', JSON.stringify(user));
+  setAuthInfo(token: string, user: UserResp): void {
+    this.cookieService.set('token', token, undefined, '/', undefined, false, 'Lax');
+    this.cookieService.set('user', JSON.stringify(user), undefined, '/', undefined, false, 'Lax');
   }
 
   getAuthToken() : string
@@ -44,16 +44,11 @@ export class AuthService {
     return this.cookieService.get('token');
   }
   getAuthUser(): UserResp | null {
-    const userString = this.cookieService.get('user');
-  
-    if (!userString) {
-      return null;  // 'user' cookie does not exist
-    }
-  
+    const raw = this.cookieService.get('user');
     try {
-      return JSON.parse(userString) as UserResp;
-    } catch (error) {
-      console.error('Error parsing user cookie:', error);
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) {
+      console.error('Failed to parse user cookie:', e);
       return null;
     }
   }
