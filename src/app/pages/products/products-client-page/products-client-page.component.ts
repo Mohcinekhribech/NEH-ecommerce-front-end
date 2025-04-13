@@ -12,7 +12,7 @@ export class ProductsClientPageComponent {
   constructor(private productService:ProductService){}
   products:PaginatedProducts | null = null
   currentPage = 0; // Current page index (starts from 0)
-  pageSize = 6; // Number of orders per page
+  pageSize = 10; // Number of orders per page
   searchCriteria: any = {
     name: '',
     categoryName: '',
