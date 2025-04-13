@@ -5,7 +5,7 @@
           <img [src]="apiUrl+'/upload/'+category.image" alt="" srcset="">
       </div>
       <div>
-          <h1 class="text-3xl font-semibold">{{category.name}}</h1>
+          <h1 class="md:text-3xl max-md:text-xl font-semibold">{{category.name}}</h1>
           <p class="md:text-lg max-md:text-xs">
               {{category.description}}
           </p>
@@ -16,7 +16,7 @@
       <app-product-card
         *ngFor="let product of products?.content"
         [product]="product"
-        class="m-2"
+        class="m-1"
       ></app-product-card>
   </div>
   <div class="mt-6 sm:flex sm:items-center sm:justify-between max-w-3xl mx-auto">
