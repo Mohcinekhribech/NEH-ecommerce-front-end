@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://neh-cosmetics.com/sitemap.xml
