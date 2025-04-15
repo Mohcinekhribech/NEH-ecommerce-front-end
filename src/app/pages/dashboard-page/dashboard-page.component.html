@@ -131,7 +131,7 @@
                     <div class="flex-1">
                         <h3 class="font-medium text-gray-600">{{product.name}}</h3>
                     </div>
-                    <p class="font-medium text-gray-600">${{product.finalPrice}}</p>
+                    <p class="font-medium text-gray-600">{{product.finalPrice}} DH ({{productService.getEuroPrice(product.finalPrice)}} €) </p>
                 </div>
             </div>
         </div>

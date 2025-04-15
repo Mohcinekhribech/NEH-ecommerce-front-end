@@ -27,7 +27,7 @@
             </div>
             <div class="p-2 flex justify-between">
                 <p>
-                    Totale : {{total}} £
+                    Totale : {{total}}DH ({{productService.getEuroPrice(total)}}€)
                 </p>
                 <a routerLink="/checkout" class="bg-[#8DB600] text-white  px-2 py-1 rounded-lg text-xs font-semibold">
                     Checkout

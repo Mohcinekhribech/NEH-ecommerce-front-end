@@ -14,7 +14,7 @@ leaveClass="animate-fadeout" class="md:max-w-[280px] max-md:max-w-[160px] rounde
     </h5>
     <div class="flex justify-between py-2  align-center">
         <p class="font-semibold text-[16px]">
-            {{product.finalPrice}} DH ({{productService.getEuroPrice(product.finalPrice)}} £)
+            {{product.finalPrice}} DH ({{productService.getEuroPrice(product.finalPrice)}} €)
         </p>
         <button class="font-semibold w-fit h-fit bg-[#49990B] hover:bg-[#8DB600] duration-100 rounded-lg flex space-x-1  items-center  px-[6px] py-[6px] text-white" (click)="addToCart(product)">
             <li class="pi pi-plus-circle h-fit"></li>

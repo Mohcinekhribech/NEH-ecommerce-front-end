@@ -46,7 +46,7 @@
             <p class="font-medium">Poids : {{ product.weight }}g</p>
           </div>
           <div class="flex space-x-2 text-md p-1 my-2">
-            <p class="font-medium">Prix : {{ product.finalPrice }} £</p>
+            <p class="font-medium">Prix : {{ product.finalPrice }} DH ( {{productService.getEuroPrice(product.finalPrice)}} € )</p>
           </div>
         </div>
       </div>

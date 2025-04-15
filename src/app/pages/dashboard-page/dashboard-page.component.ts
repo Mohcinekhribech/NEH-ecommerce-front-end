@@ -28,7 +28,7 @@ export class DashboardPageComponent {
     conversionRate: 0
   }
 
-  constructor(private dashboardService:DashboardService,private productService:ProductService,private orderService:OrderService){}
+  constructor(private dashboardService:DashboardService,public productService:ProductService,private orderService:OrderService){}
 
   ngOnInit()
   {

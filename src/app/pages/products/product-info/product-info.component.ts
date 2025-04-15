@@ -12,7 +12,7 @@ import { environment } from 'src/environment/environment';
   styleUrls: ['./product-info.component.css']
 })
 export class ProductInfoComponent {
-  constructor(private productService: ProductService, private cartService: CartService, private route: ActivatedRoute, private router: Router, private titleService: Title, private metaService: Meta) { }
+  constructor(public productService: ProductService, private cartService: CartService, private route: ActivatedRoute, private router: Router, private titleService: Title, private metaService: Meta) { }
   productId: string | null = '';
   apiUrl = environment.apiUrl;
   product: ProductDtoResponse = {

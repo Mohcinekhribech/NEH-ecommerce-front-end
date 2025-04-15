@@ -6,6 +6,7 @@ import { PaymentStatus } from 'src/app/core/enums/payment-status.enum';
 import { OrderDtoResponse } from 'src/app/core/models/order-dto-response.model';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { OrderService } from 'src/app/core/services/order.service';
+import { ProductService } from 'src/app/core/services/product.service';
 import { environment } from 'src/environment/environment';
 
 @Component({
@@ -21,7 +22,7 @@ export class OrderInfoComponent {
   selectedStatus:any;
   role:String | undefined = ''
   apiUrl = environment.apiUrl;
-  constructor(private orderService:OrderService,private messageService:MessageService,private authService:AuthService){}
+  constructor(private orderService:OrderService,private messageService:MessageService,private authService:AuthService,public productService:ProductService){}
   ngOnInit()
   {
     this.role =  this.authService.getAuthUser()?.role

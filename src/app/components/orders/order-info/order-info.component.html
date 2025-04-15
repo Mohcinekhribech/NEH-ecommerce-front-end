@@ -116,7 +116,7 @@
         <div class="p-2 w-full">
           <div class="flex justify-between text-lg font-semibold">
             <p>Totale :</p>
-            <p>{{ order?.totalPrice }} £</p>
+            <p>{{ order?.totalPrice }} DH ({{productService.getEuroPrice(order ? order.totalPrice:0)}} €)</p>
           </div>
         </div>
       </div>

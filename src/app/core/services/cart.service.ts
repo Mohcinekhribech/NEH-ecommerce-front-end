@@ -43,19 +43,19 @@ export class CartService {
 
   // Update product quantity in cart
   updateQuantity(productId: String, quantity: number): void {
-      const item = this.cartItems.find(item => item.product.id === productId);
-      if (item && quantity-1 > 0) {
-        this.cartItems = this.cartItems.map(itemC => {
-            if(itemC.product.id === productId)
-            {
-                return itemC
-            }
-            return itemC
-        });
-      } else if (item && quantity-1 === 0) {
-          this.removeFromCart(productId);
-      }
-      this.saveCart();
+    const itemIndex = this.cartItems.findIndex(item => item.product.id === productId);
+  
+    if (itemIndex === -1) {
+      return; // L'article n'existe pas dans le panier
+    }
+  
+    if (quantity <= 0) {
+      this.removeFromCart(productId);
+    } else {
+      this.cartItems[itemIndex].quantity = quantity;
+    }
+  
+    this.saveCart();
   }
 
   // Get all cart items
