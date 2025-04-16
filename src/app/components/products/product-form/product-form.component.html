@@ -232,7 +232,7 @@
       class="bg-white/20 border border-gray-300 text-gray-800 text-sm rounded-lg block w-full p-2.5 placeholder-gray-100"
       [(ngModel)]="productDtoRequest.description"
       placeholder="Write Category Description here..."
-      maxlength="250"
+      maxlength="2000"
       #description="ngModel"
       required
     ></textarea>
@@ -254,12 +254,12 @@
       >Avantages</label
     >
     <textarea
-      name="description"
+      name="benefits"
       id="message"
       rows="4"
       class="bg-white/20 border border-gray-300 text-gray-800 text-sm rounded-lg block w-full p-2.5 placeholder-gray-100"
       [(ngModel)]="productDtoRequest.benefits"
-      placeholder="Write Category Description here..."
+      placeholder="Write Benefits Description here..."
     ></textarea>
   </div>
 
@@ -268,12 +268,12 @@
       >Comment utiliser</label
     >
     <textarea
-      name="description"
+      name="howToUse"
       id="message"
       rows="4"
       class="bg-white/20 border border-gray-300 text-gray-800 text-sm rounded-lg block w-full p-2.5 placeholder-gray-100"
       [(ngModel)]="productDtoRequest.howToUse"
-      placeholder="Write Category Description here..."
+      placeholder="Write howToUse Description here..."
     ></textarea>
   </div>
 
@@ -321,9 +321,7 @@
     </div>
   </div> -->
 
-  <button
-    class="text-white bg-[#8DB600] hover:bg-[#8DB600]/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
-  >
+  <button class="text-white bg-[#8DB600] hover:bg-[#8DB600]/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
     Submit
   </button>
 </form>

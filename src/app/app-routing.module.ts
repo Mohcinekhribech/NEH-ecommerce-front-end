@@ -42,9 +42,8 @@ const routes: Routes = [
   { path: 'dashboard/products/update/:id', component: UpdateProductPageComponent, canActivate: [AuthGuard], data: { allowedRoles: ['Admin'] }},
 ];
 
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
