@@ -1,5 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';;
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,8 +12,8 @@ import { CategoriessTableComponent } from './components/categories/categoriess-t
 import { PopUpComponent } from './components/ui/pop-up/pop-up.component';
 import { CategoriesFormComponent } from './components/categories/categories-form/categories-form.component';
 import { CategoriesPageComponent } from './pages/categories/categories-page/categories-page.component';
-import { FormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { FormsModule as AppFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CategoriesUpdateFormComponent } from './components/categories/categories-update-form/categories-update-form.component';
 import { ProductsPageComponent } from './pages/products/products-page/products-page.component';
 import { ProductUpdateFormComponent } from './components/products/product-update-form/product-update-form.component';
@@ -45,7 +47,6 @@ import { OrdersAdminPageComponent } from './pages/orders/orders-admin-page/order
 import { OrderTableComponent } from './components/orders/order-table/order-table.component';
 import { OrderCardComponent } from './components/orders/order-card/order-card.component';
 import { OrdersClientPageComponent } from './pages/orders/orders-client-page/orders-client-page.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrimeNgModule } from './primeng/primeng.module';
 import { PaypalModule } from './payments/paypal/paypal.module';
 import { AboutComponent } from './pages/client-side-pages/about/about.component';
@@ -53,6 +54,15 @@ import { OrderInfoComponent } from './components/orders/order-info/order-info.co
 import { FooterComponent } from './components/ui/footer/footer.component';
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
 import { StateCardComponent } from './components/statistics/state-card/state-card.component';
+import { InfluencersPageComponent } from './pages/influencers/influencers-page/influencers-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InfluencersTableComponent } from './components/influencers/influencers-table/influencers-table.component';
+import { InfluencerFormComponent } from './components/influencers/influencer-form/influencer-form.component';
+import { PromoCodesFormComponent } from './components/promo-codes/promo-codes-form/promo-codes-form.component';
+import { PromoCodesPageComponent } from './pages/promo-codes/promo-codes-page/promo-codes-page.component';
+import { PromoCodesTableComponent } from './components/promo-codes/promo-codes-table/promo-codes-table.component';
+import { CommissionsTableComponent } from './components/commission/commissions-table/commissions-table.component';
+import { CommissionsPageComponent } from './pages/commission/commissions-page/commissions-page.component';
 
 export function tokenGetter() {
   const token = getCookie('token');
@@ -113,14 +123,23 @@ const jwtModuleOptions: JwtModuleOptions = {
     OrderInfoComponent,
     FooterComponent,
     ClientLayoutComponent,
-    StateCardComponent
+    StateCardComponent,
+    InfluencersPageComponent,
+    InfluencersTableComponent,
+    InfluencerFormComponent,
+    PromoCodesTableComponent,
+    PromoCodesFormComponent,
+    PromoCodesPageComponent,
+    CommissionsTableComponent,
+    CommissionsPageComponent
   ],
   imports: [
     PaypalModule,
     PrimeNgModule,
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule,
+    AppFormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     JwtModule.forRoot(jwtModuleOptions)

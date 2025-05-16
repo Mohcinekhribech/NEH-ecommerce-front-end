@@ -5,7 +5,7 @@ import { PaymentStatus } from 'src/app/core/enums/payment-status.enum';
 import { OrderDtoResponse } from 'src/app/core/models/order-dto-response.model';
 import { PaginatedOrders } from 'src/app/core/models/pageable/pageable-orders-dto.model';
 import { OrderService } from 'src/app/core/services/order.service';
-import { environment } from 'src/environment/environment';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-order-table',

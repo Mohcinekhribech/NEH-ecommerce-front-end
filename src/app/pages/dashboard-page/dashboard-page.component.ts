@@ -7,7 +7,7 @@ import { ProductDtoResponse } from 'src/app/core/models/ProductDtoResponse.model
 import { DashboardService } from 'src/app/core/services/dashboard.service';
 import { OrderService } from 'src/app/core/services/order.service';
 import { ProductService } from 'src/app/core/services/product.service';
-import { environment } from 'src/environment/environment';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-dashboard-page',

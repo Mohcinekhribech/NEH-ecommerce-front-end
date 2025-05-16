@@ -5,3 +5,11 @@
     z-index: 9999;
     transform: translate(-50%, -50%);
 }
+.status-badge.active {
+    @apply bg-green-100 text-green-800 px-2 py-1 rounded;
+  }
+  
+  .status-badge.inactive {
+    @apply bg-red-100 text-red-800 px-2 py-1 rounded;
+  }
+  

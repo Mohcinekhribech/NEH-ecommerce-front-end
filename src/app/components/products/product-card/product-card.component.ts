@@ -3,7 +3,7 @@ import { MessageService } from 'primeng/api';
 import { ProductDtoResponse } from 'src/app/core/models/ProductDtoResponse.model';
 import { CartService } from 'src/app/core/services/cart.service';
 import { ProductService } from 'src/app/core/services/product.service';
-import { environment } from 'src/environment/environment';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-product-card',

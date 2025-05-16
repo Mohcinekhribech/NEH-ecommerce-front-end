@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CartItem } from 'src/app/core/models/CartItem.model';
 import { CartService } from 'src/app/core/services/cart.service';
-import { environment } from 'src/environment/environment';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-card-page',

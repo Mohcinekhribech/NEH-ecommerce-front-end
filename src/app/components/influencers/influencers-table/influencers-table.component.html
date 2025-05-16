@@ -1,0 +1,94 @@
+<table class="w-full text-sm text-left rtl:text-right text-gray-500">
+  <thead class="bg-gray-50">
+    <tr>
+      <th
+        scope="col"
+        class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500"
+      >
+        Name
+      </th>
+      <th
+        scope="col"
+        class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500"
+      >
+        Email
+      </th>
+      <th
+        scope="col"
+        class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500"
+      >
+        Phone
+      </th>
+      <th
+        scope="col"
+        class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500"
+      >
+        Commission Rate
+      </th>
+      <th
+        scope="col"
+        class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500"
+      >
+        Status
+      </th>
+      <th
+        scope="col"
+        class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500"
+      >
+        Actions
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let influencer of influencers" class="bg-white border-b">
+      <td class="py-4 px-6">{{ influencer.name }}</td>
+      <td class="py-4 px-6">{{ influencer.email }}</td>
+      <td class="py-4 px-6">{{ influencer.phone }}</td>
+      <td class="py-4 px-6">{{ influencer.commissionRate }}%</td>
+      <td class="py-4 px-6">
+        <span
+          [class]="
+            'status-badge ' + (influencer.isActive ? 'active' : 'inactive')
+          "
+        >
+          {{ influencer.isActive ? "Active" : "Inactive" }}
+        </span>
+      </td>
+      <td class="py-4 px-6">
+        <div class="flex gap-2">
+          <button
+            pButton
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-text"
+            (click)="editInfluencer(influencer)"
+          ></button>
+          <button
+            pButton
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-text p-button-danger"
+            (click)="confirmDelete(influencer.id, $event)"
+          ></button>
+          <button
+            pButton
+            (click)="pr.toggle($event)"
+            icon="pi pi-ellipsis-v"
+            class="p-button-rounded p-button-text p-button-secondary"
+          ></button>
+          <p-overlayPanel class="bg-[#F4F5F8] rounded-lg shadow" #pr>
+            <div class="flex flex-col gap-2">
+              <a routerLink="/dashboard/influencers/{{influencer.id}}/commissions" class="flex items-center gap-2 space-x-1 p-2">
+                <i class="pi pi-money-bill"></i>
+                <span>Commissions</span>
+              </a>
+              <hr>
+              <a routerLink="/dashboard/influencers/{{influencer.id}}/promo-codes" class="flex items-center gap-2 space-x-1 p-2">
+                <i class="pi pi-tags"></i>
+                <span>Promo Codes</span>
+              </a>
+            </div>
+          </p-overlayPanel>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

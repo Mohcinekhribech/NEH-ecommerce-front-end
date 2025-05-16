@@ -7,7 +7,7 @@ import { OrderDtoResponse } from 'src/app/core/models/order-dto-response.model';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { OrderService } from 'src/app/core/services/order.service';
 import { ProductService } from 'src/app/core/services/product.service';
-import { environment } from 'src/environment/environment';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-order-info',

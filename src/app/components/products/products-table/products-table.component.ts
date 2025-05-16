@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { PaginatedProducts } from 'src/app/core/models/pageable/pageable-products-dto.model';
 import { ProductService } from 'src/app/core/services/product.service';
-import { environment } from 'src/environment/environment';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-products-table',

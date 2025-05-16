@@ -3,7 +3,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { CategoryDtoRequest } from 'src/app/core/models/CategoryDtoRequest.model';
 import { CategoryDtoResponse } from 'src/app/core/models/CategoryDtoResponse.model';
 import { CategoryService } from 'src/app/core/services/category.service';
-import { environment } from 'src/environment/environment';
+import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 
 @Component({

@@ -4,7 +4,7 @@ import { CategoryDtoResponse } from 'src/app/core/models/CategoryDtoResponse.mod
 import { PaginatedProducts } from 'src/app/core/models/pageable/pageable-products-dto.model';
 import { CategoryService } from 'src/app/core/services/category.service';
 import { ProductService } from 'src/app/core/services/product.service';
-import { environment } from 'src/environment/environment';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-category-info',

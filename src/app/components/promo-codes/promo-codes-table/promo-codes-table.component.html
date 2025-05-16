@@ -1,0 +1,48 @@
+<table class="w-full text-sm text-left rtl:text-right text-gray-500">
+    <thead class="bg-gray-50">
+      <tr>
+        <th class="py-3.5 px-4 text-sm font-normal">Code</th>
+        <th class="py-3.5 px-4 text-sm font-normal">Discount %</th>
+        <th class="py-3.5 px-4 text-sm font-normal">Valid From</th>
+        <th class="py-3.5 px-4 text-sm font-normal">Valid Until</th>
+        <th class="py-3.5 px-4 text-sm font-normal">Max Uses</th>
+        <th class="py-3.5 px-4 text-sm font-normal">Status</th>
+        <!-- <th class="py-3.5 px-4 text-sm font-normal">Actions</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let promo of promoCodes" class="bg-white border-b">
+        <td class="py-4 px-6">{{ promo.code }}</td>
+        <td class="py-4 px-6">{{ promo.discountPercentage }}%</td>
+        <td class="py-4 px-6">{{ promo.validFrom | date: 'yyyy-MM-dd'  }}</td>
+        <td class="py-4 px-6">{{ promo.validUntil | date: 'yyyy-MM-dd' }}</td>
+        <td class="py-4 px-6">{{ promo.maxUses }}</td>
+        <td class="py-4 px-6">
+          <span
+            [class]="
+              'status-badge ' + (promo.isActive ? 'active' : 'inactive')
+            "
+          >
+            {{ promo.isActive ? 'Active' : 'Inactive' }}
+          </span>
+        </td>
+        <!-- <td class="py-4 px-6">
+          <div class="flex gap-2">
+            <button
+              pButton
+              icon="pi pi-pencil"
+              class="p-button-rounded p-button-text"
+              (click)="editPromoCode(promo)"
+            ></button>
+            <button
+              pButton
+              icon="pi pi-trash"
+              class="p-button-rounded p-button-text p-button-danger"
+              (click)="confirmDeletePromo(promo.id, $event)"
+            ></button>
+          </div>
+        </td> -->
+      </tr>
+    </tbody>
+  </table>
+  

@@ -20,9 +20,15 @@ import { CheckoutPageComponent } from './pages/orders/checkout-page/checkout-pag
 import { OrdersAdminPageComponent } from './pages/orders/orders-admin-page/orders-admin-page.component';
 import { OrdersClientPageComponent } from './pages/orders/orders-client-page/orders-client-page.component';
 import { AboutComponent } from './pages/client-side-pages/about/about.component';
+import { InfluencersPageComponent } from './pages/influencers/influencers-page/influencers-page.component';
+import { PromoCodesPageComponent } from './pages/promo-codes/promo-codes-page/promo-codes-page.component';
+import { CommissionsPageComponent } from './pages/commission/commissions-page/commissions-page.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard], data: { allowedRoles: ['Admin'] }},
+  { path: 'dashboard/influencers', component: InfluencersPageComponent, canActivate: [AuthGuard], data: { allowedRoles: ['Admin'] }},
+  { path: 'dashboard/influencers/:id/promo-codes', component: PromoCodesPageComponent, canActivate: [AuthGuard], data: { allowedRoles: ['Admin'] }},
+  { path: 'dashboard/influencers/:id/commissions', component: CommissionsPageComponent, canActivate: [AuthGuard], data: { allowedRoles: ['Admin'] }},
   { path: 'products', component: ProductsClientPageComponent},
   { path: 'categories', component: CategoriesClientPageComponent},
   { path: 'checkout', component: CheckoutPageComponent, canActivate: [AuthGuard], data: { allowedRoles: ['Client'] }},

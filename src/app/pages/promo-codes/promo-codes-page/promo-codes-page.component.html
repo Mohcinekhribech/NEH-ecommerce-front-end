@@ -1,0 +1,12 @@
+<app-dashboard-layout>
+    <h1 class="text-2xl font-semibold my-6">Promo Codes</h1>
+    <button (click)="showAddForm = true"  class="px-2 py-1 text-md rounded-md text-white bg-[#8DB600] flex space-x-2 my-5">
+        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M9 12h6" /><path d="M12 9v6" /></svg>
+        <p>Ajouter un Influenceur</p>
+    </button>
+    <app-promo-codes-table [influencerId]="influencerId"></app-promo-codes-table>
+
+    <app-pop-up (closeEvent)="closeModal($event)" *ngIf="showAddForm">
+        <app-promo-codes-form [influencerId]="influencerId" (notifyParent)="ngOnInit()"></app-promo-codes-form>
+    </app-pop-up>
+</app-dashboard-layout>

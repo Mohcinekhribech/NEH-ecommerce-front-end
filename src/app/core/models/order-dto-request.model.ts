@@ -13,6 +13,7 @@ export interface OrderDtoRequest {
     zipCode:String
     country:String
     clientId:String
+    promoCode:String
     status:OrderStatus
     paymentStatus:PaymentStatus
     paymentMethod:PaymentMethod

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CategoryDtoResponse } from 'src/app/core/models/CategoryDtoResponse.model';
-import { environment } from 'src/environment/environment';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-category-card',

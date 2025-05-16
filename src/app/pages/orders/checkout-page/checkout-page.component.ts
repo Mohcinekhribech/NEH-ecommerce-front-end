@@ -14,7 +14,8 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { CartService } from 'src/app/core/services/cart.service';
 import { OrderService } from 'src/app/core/services/order.service';
 import { PayPalService } from 'src/app/core/services/paypal.service';
-import { environment } from 'src/environment/environment';
+import { PromoCodeService } from 'src/app/core/services/promo-code.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-checkout-page',
@@ -35,6 +36,7 @@ export class CheckoutPageComponent {
     email: "",
     phone: "",
     address: "",
+    promoCode: "",
     city: "",
     zipCode: "",
     country: "",
@@ -54,15 +56,23 @@ export class CheckoutPageComponent {
   };
   showPaypal: boolean = false;
   orderedProducts: OrderedProducts[] = [];
-  
+  promoCode: string = '';
+  promoError: string | null = null;
+  promoSuccess: boolean = false;
+  discountPercentage: number = 0;
+  appliedPromoCode: string | null = null;
+  discountedTotal: number = 0;
+  discount:number = 0;
+
   constructor(
     private payPalService: PayPalService,
     private cartService: CartService,
     private orderService: OrderService,
     private authService: AuthService,
     private messageService: MessageService,
-    private router :Router
-  ) {}
+    private router: Router,
+    private promoCodeService: PromoCodeService
+  ) { }
 
   ngOnInit() {
     this.payPalService.renderPayPalButton('paypal-button-container', 100, (orderId) => {
@@ -78,10 +88,10 @@ export class CheckoutPageComponent {
             this.messageService.add({ severity: 'error', summary: 'Erreur', detail: 'Votre paiement n\'a pas été validé' });
           }
         },
-        err => {
-          console.log(err);
-          this.messageService.add({ severity: 'error', summary: 'Erreur', detail: 'Votre paiement n\'a pas été validé' });
-        });
+          err => {
+            console.log(err);
+            this.messageService.add({ severity: 'error', summary: 'Erreur', detail: 'Votre paiement n\'a pas été validé' });
+          });
     });
 
     this.user = this.authService.getAuthUser();
@@ -107,6 +117,42 @@ export class CheckoutPageComponent {
     });
   }
 
+  validatePromoCode(): void {
+    if (!this.promoCode.trim()) {
+      this.promoError = 'Please enter a promo code.';
+      this.promoSuccess = false;
+      return;
+    }
+
+    this.promoCodeService.validateCode(this.promoCode).subscribe({
+      next: (promo) => {
+        if (promo.isActive && new Date(promo.validUntil) >= new Date()) {
+          this.discountPercentage = promo.discountPercentage;
+          this.promoSuccess = true;
+          this.promoError = null;
+          this.appliedPromoCode = promo.code;
+          this.order.promoCode = promo.code;
+
+          const discount = (this.order.totalPrice * promo.discountPercentage) / 100;
+        } else {
+          this.clearPromo('Promo code is expired or inactive.');
+        }
+      },
+      error: () => {
+        this.clearPromo('Invalid promo code.');
+      }
+    });
+  }
+
+  clearPromo(message: string): void {
+    this.promoError = message;
+    this.promoSuccess = false;
+    this.discountPercentage = 0;
+    this.appliedPromoCode = null;
+    this.order.promoCode = "";
+    this.discountedTotal = this.order.totalPrice;
+  }
+
   closeModal(data: any) {
     this.showPaypal = false;
   }
@@ -118,16 +164,15 @@ export class CheckoutPageComponent {
           this.orderId = res.id;
           this.cartService.clearCart()
           this.messageService.add({ severity: 'success', summary: 'Succès', detail: 'Votre commande a été enregistrée avec succès' });
-          if (this.order.paymentMethod == PaymentMethod.PAYPAL)
-          {
+          if (this.order.paymentMethod == PaymentMethod.PAYPAL) {
             this.showPaypal = true;
-          }else{
+          } else {
             this.router.navigate(["/orders"])
           }
         },
-        err => {
-          this.messageService.add({ severity: 'error', summary: 'Erreur', detail: 'Il y a un problème avec la création de la commande' });
-        });
+          err => {
+            this.messageService.add({ severity: 'error', summary: 'Erreur', detail: 'Il y a un problème avec la création de la commande' });
+          });
     } else {
       this.messageService.add({ severity: 'error', summary: 'Erreur', detail: 'Le formulaire est invalide' });
     }

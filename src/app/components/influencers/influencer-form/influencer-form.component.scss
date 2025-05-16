@@ -1,0 +1,76 @@
+// Add custom styles here if needed 
+
+:host ::ng-deep {
+    .p-dialog {
+        .p-dialog-header {
+            background: var(--surface-section);
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            padding: 1.5rem;
+        }
+
+        .p-dialog-content {
+            padding: 1.5rem;
+        }
+
+        .p-dialog-footer {
+            border-top: 1px solid var(--surface-border);
+            padding: 1.5rem;
+        }
+    }
+
+    .field {
+        margin-bottom: 1.5rem;
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .p-inputtext,
+        .p-inputnumber {
+            width: 100%;
+        }
+
+        .p-inputnumber-input {
+            width: 100%;
+        }
+
+        .p-error {
+            color: var(--red-500);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+    }
+
+    .field-checkbox {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+
+        label {
+            margin-left: 0.5rem;
+            margin-bottom: 0;
+        }
+    }
+
+    .p-button {
+        &.p-button-text {
+            &:hover {
+                background: var(--surface-hover);
+            }
+        }
+    }
+}
+
+.p-fluid {
+    .p-inputtext,
+    .p-inputnumber {
+        width: 100%;
+    }
+}
+
+.ng-invalid.ng-dirty {
+    border-color: var(--red-500);
+} 

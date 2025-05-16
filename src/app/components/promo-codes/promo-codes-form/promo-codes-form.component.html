@@ -1,0 +1,116 @@
+<form
+  [formGroup]="promoCodeForm"
+  class="w-full mx-auto p-8 bg-white rounded-2xl shadow-lg border border-gray-100"
+  (submit)="onSubmit()"
+>
+  <h2 class="text-2xl font-bold text-lime-700 mb-6 text-center tracking-tight">
+    {{ isNew ? 'Add New Promo Code' : 'Edit Promo Code' }}
+  </h2>
+
+  <!-- Code -->
+  <div class="mb-5">
+    <label for="code" class="block mb-2 text-sm font-semibold text-gray-700">Code</label>
+    <input
+      id="code"
+      type="text"
+      pInputText
+      formControlName="code"
+      class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-lime-500 focus:ring-2 focus:ring-lime-100 transition"
+      [ngClass]="{ 'ng-invalid ng-dirty': submitted && f['code'].errors }"
+    />
+    <small class="p-error" *ngIf="submitted && f['code'].errors?.['required']">Code is required.</small>
+    <small class="p-error" *ngIf="submitted && f['code'].errors?.['minlength']">Minimum 3 characters.</small>
+    <small class="p-error" *ngIf="submitted && f['code'].errors?.['maxlength']">Maximum 20 characters.</small>
+  </div>
+
+  <!-- Discount Percentage -->
+  <div class="mb-5">
+    <label for="discountPercentage" class="block mb-2 text-sm font-semibold text-gray-700">Discount (%)</label>
+    <p-inputNumber
+      id="discountPercentage"
+      formControlName="discountPercentage"
+      [min]="0"
+      [max]="100"
+      [showButtons]="true"
+      buttonLayout="horizontal"
+      incrementButtonIcon="pi pi-plus"
+      decrementButtonIcon="pi pi-minus"
+      class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-lime-500 focus:ring-2 focus:ring-lime-100 transition"
+      [ngClass]="{ 'ng-invalid ng-dirty': submitted && f['discountPercentage'].errors }"
+    ></p-inputNumber>
+    <small class="p-error" *ngIf="submitted && f['discountPercentage'].errors?.['required']">Discount is required.</small>
+    <small class="p-error" *ngIf="submitted && f['discountPercentage'].errors?.['min']">Minimum is 0%.</small>
+    <small class="p-error" *ngIf="submitted && f['discountPercentage'].errors?.['max']">Maximum is 100%.</small>
+  </div>
+
+  <div class="flex space-x-2 w-full">
+    <!-- Valid From -->
+    <div class="mb-5 w-full">
+      <label for="validFrom" class="block mb-2 text-sm font-semibold text-gray-700">Valid From</label>
+      <p-calendar
+        id="validFrom"
+        formControlName="validFrom"
+        [showIcon]="true"
+        dateFormat="yy-mm-dd"
+        class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-lime-500 focus:ring-2 focus:ring-lime-100 transition"
+        [ngClass]="{ 'ng-invalid ng-dirty': submitted && f['validFrom'].errors }"
+      ></p-calendar>
+      <small class="p-error" *ngIf="submitted && f['validFrom'].errors?.['required']">Start date is required.</small>
+    </div>
+  
+    <!-- Valid Until -->
+    <div class="mb-5 w-full">
+      <label for="validUntil" class="block mb-2 text-sm font-semibold text-gray-700">Valid Until</label>
+      <p-calendar
+        id="validUntil"
+        formControlName="validUntil"
+        [showIcon]="true"
+        dateFormat="yy-mm-dd"
+        class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-lime-500 focus:ring-2 focus:ring-lime-100 transition"
+        [ngClass]="{ 'ng-invalid ng-dirty': submitted && f['validUntil'].errors }"
+      ></p-calendar>
+      <small class="p-error" *ngIf="submitted && f['validUntil'].errors?.['required']">End date is required.</small>
+    </div>
+  </div>
+
+  <!-- Max Uses -->
+  <div class="mb-5">
+    <label for="maxUses" class="block mb-2 text-sm font-semibold text-gray-700">Max Uses</label>
+    <p-inputNumber
+      id="maxUses"
+      formControlName="maxUses"
+      [min]="1"
+      [showButtons]="true"
+      class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-lime-500 focus:ring-2 focus:ring-lime-100 transition"
+      buttonLayout="horizontal"
+      incrementButtonIcon="pi pi-plus"
+      decrementButtonIcon="pi pi-minus"
+      [ngClass]="{ 'ng-invalid ng-dirty': submitted && f['maxUses'].errors }"
+    ></p-inputNumber>
+    <small class="p-error" *ngIf="submitted && f['maxUses'].errors?.['required']">Max uses is required.</small>
+    <small class="p-error" *ngIf="submitted && f['maxUses'].errors?.['min']">At least 1 use required.</small>
+  </div>
+
+  <!-- Is Active -->
+  <div class="flex items-center mb-8">
+    <p-checkbox id="isActive" formControlName="isActive" [binary]="true"></p-checkbox>
+    <label for="isActive" class="ml-2 text-gray-700">Active</label>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="flex justify-end gap-4 mt-8">
+    <button
+      type="button"
+      (click)="hideDialog()"
+      class="px-6 py-2 rounded-lg border border-gray-300 text-gray-600 bg-white font-semibold shadow-sm hover:bg-gray-100 hover:text-lime-700 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-lime-200 flex items-center"
+    >
+      <i class="pi pi-times mr-2"></i>Cancel
+    </button>
+    <button
+      type="submit"
+      class="px-6 py-2 rounded-lg bg-lime-600 text-white font-bold shadow-md hover:bg-lime-700 hover:shadow-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-lime-300 flex items-center"
+    >
+      <i class="pi pi-check mr-2"></i>Save
+    </button>
+  </div>
+</form>
